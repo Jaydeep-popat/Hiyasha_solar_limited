@@ -113,7 +113,7 @@ export default function Footer() {
             {/* Google Map Thumbnail */}
             <div className="mt-4">
               <Link 
-                href="https://maps.google.com/?q=123+Solar+St,+Green+City" 
+                href="https://www.google.com/maps/place/Hiyasha+Solar+Systems+LLP/@22.7985409,70.8237983,17z/data=!4m7!3m6!1s0x39598d9d1e74e5e5:0x17084f2a77f27572!4b1!8m2!3d22.7985409!4d70.8263732!16s%2Fg%2F11xmrygr8y?entry=ttu&g_ep=EgoyMDI1MDcyNy4wIKXMDSoASAFQAw%3D%3D" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="block group"
@@ -123,12 +123,12 @@ export default function Footer() {
                     src="https://res.cloudinary.com/dpe33dh2p/image/upload/v1753782029/Screenshot_2025-07-29_150856_vpu003.png"
                     alt="Google Maps - Hiyasha Solar Systems Location"
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300 hover:cursor-pointer"
                   />
                   {/* Overlay with click indicator */}
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
                     <div className="text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <MapPin className="h-5 w-5 text-black mx-auto mb-1" />
+                      <MapPin className="h-7 w-7 text-black mx-auto mb-1" />
                       <p className="text-xs text-black font-large">Click to view on Google Maps</p>
                     </div>
                   </div>

@@ -1,6 +1,8 @@
 "use client"
 
 import type React from "react"
+import Image from "next/image"
+import Link from "next/link"
 
 import { useState } from "react"
 import { Phone, Mail, MapPin, Clock } from "lucide-react"
@@ -63,17 +65,39 @@ export default function ContactPage() {
 
   return (
     <div className="bg-white">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 via-white to-green-50 py-16 sm:py-24 lg:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold tracking-tight text-gray-900">
-              <span className="gradient-text">Contact Us</span>
+      {/* Hero Section with Background Image */}
+      <section className="relative py-24 sm:py-32 overflow-hidden min-h-screen flex items-center">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://res.cloudinary.com/dpe33dh2p/image/upload/v1753806195/contact_m4ovkj.png"
+            alt="Contact us background"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-green-900/20 via-transparent to-blue-900/20"></div>
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 -mt-20 sm:-mt-32">
+          <div className="mx-auto max-w-2xl text-center -mt-20">
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl drop-shadow-lg">
+              <span className="bg-gradient-to-r from-green-400 via-blue-400 to-orange-400 bg-clip-text text-transparent">
+                Contact Us
+              </span>
             </h1>
-            <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600">
+            <p className="mt-4 text-lg leading-8 text-gray-100 drop-shadow-md">
               Ready to start your solar journey? Get in touch with our experts for a free consultation.
             </p>
           </div>
+        </div>
+
+        {/* Decorative Elements */}
+        <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
+          <div className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-green-400 to-blue-400 opacity-10 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem] max-w-none"></div>
         </div>
       </section>
 
@@ -223,15 +247,31 @@ export default function ContactPage() {
                 </div>
               </dl>
 
-              {/* Map Placeholder */}
+              {/* Google Map */}
               <div className="mt-6 sm:mt-8">
                 <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-4">Find Us</h3>
-                <div className="aspect-video w-full rounded-lg bg-gray-200 flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="h-8 w-8 sm:h-12 sm:w-12 text-gray-400 mx-auto mb-2" />
-                    <p className="text-sm sm:text-base text-gray-500">Interactive Map Coming Soon</p>
+                <Link 
+                  href="https://www.google.com/maps/place/Hiyasha+Solar+Systems+LLP/@22.7985409,70.8237983,17z/data=!4m7!3m6!1s0x39598d9d1e74e5e5:0x17084f2a77f27572!4b1!8m2!3d22.7985409!4d70.8263732!16s%2Fg%2F11xmrygr8y?entry=ttu&g_ep=EgoyMDI1MDcyNy4wIKXMDSoASAFQAw%3D%3D" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block group"
+                >
+                  <div className="relative w-full h-48 sm:h-56 rounded-lg overflow-hidden border border-gray-300 hover:border-green-500 transition-colors duration-300 shadow-lg hover:shadow-xl">
+                    <Image
+                      src="https://res.cloudinary.com/dpe33dh2p/image/upload/v1753782029/Screenshot_2025-07-29_150856_vpu003.png"
+                      alt="Google Maps - Hiyasha Solar Systems Location"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    {/* Overlay with click indicator */}
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                      <div className="text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <MapPin className="h-8 w-8 sm:h-10 sm:w-10 text-black mx-auto mb-2 drop-shadow-lg" />
+                        <p className="text-sm sm:text-base text-black font-semibold drop-shadow-lg">Click to view on Google Maps</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </div>
             </div>
           </div>

@@ -19,7 +19,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-b border-green-100">
+    <header className="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-green-100">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-4 sm:p-6 lg:px-8"
         aria-label="Global"
