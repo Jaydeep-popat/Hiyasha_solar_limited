@@ -1,0 +1,567 @@
+"use client"
+
+import { useState, useEffect } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { 
+  ChevronLeft, 
+  ChevronRight, 
+  Star, 
+  Zap, 
+  Shield, 
+  Award, 
+  Users, 
+  TrendingUp, 
+  Globe, 
+  CheckCircle, 
+  ArrowRight,
+  Phone,
+  Mail,
+  Clock,
+  Leaf,
+  DollarSign
+} from "lucide-react"
+
+const heroImages = [
+  {
+    src: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1753696615/img_g3vdqn.png",
+    alt: "Solar panels on green field with sunset sky",
+  },
+  {
+    src: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1753696612/img_2_u3xbme.png",
+    alt: "Aerial view of large solar farm installation",
+  },
+  {
+    src: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1753696609/img_3_y5ulhk.png",
+    alt: "Solar panels and wind turbines at golden hour",
+  },
+]
+
+const featuredProducts = [
+  {
+    name: "Premium Solar Panel 400W",
+    description: "High-efficiency monocrystalline solar panels with 25-year warranty.",
+    image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1754466660/WhatsApp_Image_2025-08-06_at_07.36.48_21f465ce_cwvawd.jpg",
+    price: "₹24,899",
+    rating: 4.8,
+    features: ["21.5% efficiency", "25-year warranty", "Weather resistant", "Easy installation"]
+  },
+  {
+    name: "Smart Inverter Pro",
+    description: "Advanced inverter technology with real-time monitoring capabilities.",
+    image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1754968096/Gemini_Generated_Image_xh38iwxh38iwxh38_kfcevz.png",
+    price: "₹1,07,999",
+    rating: 4.9,
+    features: ["WiFi connectivity", "Real-time monitoring", "Smart optimization", "Mobile app"]
+  },
+  {
+    name: "Energy Storage Battery",
+    description: "Lithium-ion battery system for reliable backup power storage.",
+    image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1754969723/b2fc97e6-620b-457b-be99-e1a5e92a529d_auozlt.jpg",
+    price: "₹2,90,499",
+    rating: 4.7,
+    features: ["10kWh capacity", "Backup power", "Grid independence", "Long cycle life"]
+  },
+]
+
+const testimonials = [
+  {
+    name: "Amit Sharma",
+    role: "Homeowner",
+    content: "SolarTech Solutions turned our rooftop into a powerhouse of clean energy. Our electricity bills have gone down by almost 80%, and we feel proud to contribute to a greener India.",
+    rating: 5,
+    image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1751339032/x6ldvsgylsamcoi0wzte.png",
+    savings: "₹1,95,000/year"
+  },
+  {
+    name: "Priya Nair",
+    role: "Small Business Owner",
+    content: "Installing their commercial solar system was the best business decision I’ve made. The savings are huge, and their after-sales service is truly exceptional. They guided us through every step.",
+    rating: 5,
+    image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1750787751/qsuykamrtcxbhgnhnjwd.webp",
+    savings: "₹12,50,000/year"
+  },
+  {
+    name: "Rahul Mehta",
+    role: "Environmental Volunteer",
+    content: "Finally found a solar company that’s as passionate about sustainability as I am. Their team ensured everything was done with care for both the environment and our needs.",
+    rating: 5,
+    image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1749657365/rtmdwxpvwppy3lu9kuif.jpg",
+    savings: "₹1,45,000/year"
+  },
+]
+
+
+const stats = [
+  { number: "10,000+", label: "Happy Customers", icon: Users },
+  { number: "50MW+", label: "Solar Power Installed", icon: Zap },
+  { number: "98%", label: "Customer Satisfaction", icon: Star },
+  { number: "25+", label: "Years Experience", icon: Award },
+]
+
+const benefits = [
+  {
+    title: "Reduce Energy Bills",
+    description: "Save up to 90% on your electricity bills with our efficient solar solutions.",
+    icon: DollarSign,
+    color: "text-green-600",
+    stats: "90% savings"
+  },
+  {
+    title: "Increase Property Value",
+    description: "Solar installations can increase your property value by up to 4%.",
+    icon: TrendingUp,
+    color: "text-blue-600",
+    stats: "4% increase"
+  },
+  {
+    title: "Environmental Impact",
+    description: "Reduce your carbon footprint and contribute to a cleaner environment.",
+    icon: Leaf,
+    color: "text-green-600",
+    stats: "Zero emissions"
+  },
+  {
+    title: "Tax Benefits",
+    description: "Take advantage of government tax benefits and incentives for solar installations.",
+    icon: Award,
+    color: "text-purple-600",
+    stats: "Tax benefits"
+  },
+]
+
+const services = [
+  {
+    name: "Residential Solar",
+    description: "Custom solar solutions for homes with professional installation and maintenance.",
+    icon: "🏠",
+    features: ["Free consultation", "Custom design", "Professional installation", "25-year warranty"]
+  },
+  {
+    name: "Commercial Solar",
+    description: "Large-scale solar solutions for businesses with maximum ROI and efficiency.",
+    icon: "🏢",
+    features: ["Energy audit", "ROI analysis", "Commercial installation", "Ongoing support"]
+  },
+  {
+    name: "Solar Maintenance",
+    description: "Comprehensive maintenance services to keep your system running at peak efficiency.",
+    icon: "🔧",
+    features: ["Regular cleaning", "Performance monitoring", "Component inspection", "Preventive maintenance"]
+  },
+]
+
+export default function HomePage() {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0)
+  const [currentHeroImage, setCurrentHeroImage] = useState(0)
+  const [hoveredBenefit, setHoveredBenefit] = useState<number | null>(null)
+
+  // Auto-scroll hero images every 6 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentHeroImage((prev) => (prev + 1) % heroImages.length)
+    }, 6000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
+  }
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+  }
+
+  const renderStars = (rating: number) => {
+    return Array.from({ length: 5 }, (_, i) => (
+      <Star
+        key={i}
+        className={`h-4 w-4 ${i < rating ? "text-yellow-400 fill-current" : "text-gray-300"}`}
+      />
+    ))
+  }
+
+  return (
+    <div className="bg-white">
+      {/* Hero Section with Background Image Carousel */}
+      <section className="relative py-24 sm:py-32 overflow-hidden min-h-screen flex items-center">
+        {/* Background Image Carousel */}
+        <div className="absolute inset-0 z-0">
+          {heroImages.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                index === currentHeroImage ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <Image
+                src={image.src || "/placeholder.svg"}
+                alt={image.alt}
+                fill
+                className="object-cover"
+                priority={index === 0}
+              />
+            </div>
+          ))}
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-black/50"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-green-900/30 via-transparent to-blue-900/30"></div>
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white drop-shadow-lg">
+              Powering the Future with{" "}
+              <span className="bg-gradient-to-r from-green-400 via-blue-400 to-orange-400 bg-clip-text text-transparent">
+                Solar Energy
+              </span>
+            </h1>
+            <p className="mt-6 sm:mt-8 text-lg sm:text-xl leading-8 text-gray-100 drop-shadow-md">
+              Transform your home or business with clean, renewable solar energy. Join thousands of satisfied customers
+              who have made the switch to sustainable power and are saving money while protecting the environment.
+            </p>
+            <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6">
+              <Link href="/contact" className="btn-primary text-lg shadow-xl hover:scale-105 transition-transform duration-300">
+                Get a Free Quote
+              </Link>
+              <Link
+                href="/products"
+                className="text-lg font-semibold leading-6 text-white hover:text-green-400 transition-colors duration-300 group drop-shadow-md"
+              >
+                View Products
+                <ArrowRight className="inline ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </Link>
+            </div>
+            
+            {/* Hero Stats */}
+            <div className="mt-12 sm:mt-16 grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center group">
+                  <div className="flex justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+                    <stat.icon className="h-6 w-6 text-green-400" />
+                  </div>
+                  <div className="text-xl sm:text-2xl font-bold text-white group-hover:scale-105 transition-transform duration-300">
+                    {stat.number}
+                  </div>
+                  <div className="text-sm text-gray-300">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Auto-scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+          <div className="flex space-x-2">
+            {heroImages.map((_, index) => (
+              <div
+                key={index}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentHeroImage ? "bg-white shadow-lg scale-125" : "bg-white/50 hover:bg-white/70"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Decorative Elements */}
+        <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
+          <div className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-green-400 to-blue-400 opacity-10 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem] max-w-none"></div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-green-50 via-blue-50 to-orange-50">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">Why Choose Solar Energy?</h2>
+            <p className="mt-4 text-lg leading-8 text-gray-600">
+              Discover the many benefits of switching to clean, renewable solar energy.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {benefits.map((benefit, index) => (
+              <div 
+                key={index} 
+                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                onMouseEnter={() => setHoveredBenefit(index)}
+                onMouseLeave={() => setHoveredBenefit(null)}
+              >
+                <div className="flex justify-center mb-3">
+                  <div className={`p-2 rounded-lg ${hoveredBenefit === index ? 'bg-green-100' : 'bg-gray-100'} transition-colors duration-300`}>
+                    <benefit.icon className={`h-6 w-6 ${benefit.color} ${hoveredBenefit === index ? 'scale-110' : ''} transition-transform duration-300`} />
+                  </div>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 text-center mb-2">{benefit.title}</h3>
+                <p className="text-gray-600 text-center mb-3">{benefit.description}</p>
+                <div className="text-center">
+                  <span className="text-lg font-bold text-green-600">{benefit.stats}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Products Section */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">Featured Solar Products</h2>
+            <p className="mt-4 text-lg leading-8 text-gray-600">
+              Discover our premium solar solutions designed for maximum efficiency and reliability.
+            </p>
+          </div>
+          <div className="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-6 sm:mt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            {featuredProducts.map((product, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <div className="relative">
+                  <Image
+                    src={product.image || "/placeholder.svg"}
+                    alt={product.name}
+                    width={400}
+                    height={300}
+                    className="h-40 w-full object-cover"
+                  />
+                  <div className="absolute top-2 right-2 bg-green-600 text-white px-2 py-1 rounded-full text-sm font-semibold">
+                    {product.price}
+                  </div>
+                </div>
+                <div className="p-5">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-lg font-semibold text-gray-900">{product.name}</h3>
+                    <div className="flex items-center">
+                      {renderStars(product.rating)}
+                    </div>
+                  </div>
+                  <p className="text-gray-600 mb-3">{product.description}</p>
+                  
+                  {/* Features */}
+                  <div className="mb-3">
+                    <div className="grid grid-cols-2 gap-2">
+                      {product.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-center gap-2">
+                          <CheckCircle className="h-4 w-4 text-green-600" />
+                          <span className="text-sm text-gray-600">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <Link
+                    href="/products"
+                    className="inline-flex items-center text-green-600 hover:text-green-500 font-medium group"
+                  >
+                    Learn More 
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 via-white to-green-50">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">Our Services</h2>
+            <p className="mt-4 text-lg leading-8 text-gray-600">
+              Comprehensive solar solutions tailored to your needs.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {services.map((service, index) => (
+              <div key={index} className="bg-white rounded-xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div className="text-3xl mb-3">{service.icon}</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{service.name}</h3>
+                <p className="text-gray-600 mb-3">{service.description}</p>
+                <ul className="space-y-2">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center gap-2">
+                      <CheckCircle className="h-4 w-4 text-green-600" />
+                      <span className="text-sm text-gray-600">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Mission Section */}
+      <section className="bg-gradient-to-br from-green-50 via-blue-50 to-orange-50 py-12 sm:py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-12 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-center">
+            <div className="lg:pr-8 lg:pt-4">
+              <div className="lg:max-w-lg">
+                <h2 className="text-base font-semibold leading-7 text-green-600">Our Mission</h2>
+                <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                  Leading the Solar Revolution
+                </p>
+                <p className="mt-4 text-lg leading-7 text-gray-600">
+                  At SolarTech Solutions, we're committed to making clean energy accessible to everyone. Our mission is
+                  to accelerate the world's transition to sustainable energy through innovative solar solutions.
+                </p>
+                <dl className="mt-8 max-w-xl space-y-6 text-base leading-7 text-gray-600 lg:max-w-none">
+                  <div className="relative pl-9">
+                    <dt className="inline font-semibold text-gray-900">
+                      <Zap className="absolute left-1 top-1 h-5 w-5 text-green-600" />
+                      Clean Energy.
+                    </dt>
+                    <dd className="inline"> Reduce your carbon footprint with renewable solar power.</dd>
+                  </div>
+                  <div className="relative pl-9">
+                    <dt className="inline font-semibold text-gray-900">
+                      <Shield className="absolute left-1 top-1 h-5 w-5 text-green-600" />
+                      Reliable Service.
+                    </dt>
+                    <dd className="inline"> 25-year warranties and professional installation guaranteed.</dd>
+                  </div>
+                  <div className="relative pl-9">
+                    <dt className="inline font-semibold text-gray-900">
+                      <Award className="absolute left-1 top-1 h-5 w-5 text-green-600" />
+                      Industry Leading.
+                    </dt>
+                    <dd className="inline"> Award-winning solar solutions trusted by thousands.</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-2xl">
+                <Image
+                  src="https://res.cloudinary.com/dpe33dh2p/image/upload/v1754970953/f859b349-603c-4b4e-ad3a-05eb24c69a55_cyjat2.jpg"
+                  alt="Solar installation"
+                  width={800}
+                  height={600}
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+              <div className="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-lg p-4">
+                <div className="text-2xl font-bold text-green-600">15+</div>
+                <div className="text-sm text-gray-600">Years Experience</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-10 sm:py-14 lg:py-16 bg-gradient-to-b from-gray-50 to-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">What Our Customers Say</h2>
+            <p className="mt-3 text-lg leading-7 text-gray-600">
+              Join thousands of satisfied customers who have made the switch to solar energy.
+            </p>
+          </div>
+          <div className="mx-auto mt-10 max-w-2xl">
+            <div className="relative">
+              <div className="bg-white rounded-xl shadow-xl p-5 border border-gray-100 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 to-blue-500"></div>
+                <div className="flex items-center gap-4 mb-3">
+                  <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                    <Image
+                      src={testimonials[currentTestimonial].image}
+                      alt={testimonials[currentTestimonial].name}
+                      width={48}
+                      height={48}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center mb-1">
+                      {renderStars(testimonials[currentTestimonial].rating)}
+                    </div>
+                    <div className="text-sm text-green-600 font-semibold">
+                      Saves {testimonials[currentTestimonial].savings}
+                    </div>
+                  </div>
+                </div>
+                <blockquote className="text-lg text-gray-900 mb-3 italic leading-relaxed">
+                  "{testimonials[currentTestimonial].content}"
+                </blockquote>
+                <div>
+                  <div className="font-bold text-gray-900">{testimonials[currentTestimonial].name}</div>
+                  <div className="text-blue-600 font-medium text-sm">{testimonials[currentTestimonial].role}</div>
+                </div>
+              </div>
+              <button
+                onClick={prevTestimonial}
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-shadow"
+              >
+                <ChevronLeft className="h-6 w-6 text-gray-600" />
+              </button>
+              <button
+                onClick={nextTestimonial}
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-shadow"
+              >
+                <ChevronRight className="h-6 w-6 text-gray-600" />
+              </button>
+            </div>
+            <div className="flex justify-center mt-4 space-x-2">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentTestimonial(index)}
+                  className={`w-3 h-3 rounded-full transition-colors ${
+                    index === currentTestimonial ? "bg-green-600" : "bg-gray-300"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-10 sm:py-14 lg:py-16 bg-gradient-to-r from-green-600 to-blue-600">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Ready to Go Solar?</h2>
+            <p className="mt-3 text-lg leading-7 text-white/90">
+              Contact us today for a free consultation and discover how much you can save with solar energy.
+            </p>
+            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6">
+              <Link 
+                href="/contact" 
+                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-3 rounded-full font-semibold transition-all duration-300 w-full sm:w-auto text-center transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                Get Free Quote
+              </Link>
+              <Link
+                href="/products"
+                className="text-white border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-green-600 transition-all duration-300 w-full sm:w-auto text-center transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                View Products
+                <ArrowRight className="inline ml-2 h-5 w-5" />
+              </Link>
+            </div>
+            <div className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-4 text-white/80">
+              <div className="flex items-center gap-2">
+                <Phone className="h-5 w-5" />
+                <span className="text-base font-medium">+91 97270 97971</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="h-5 w-5" />
+                <span className="text-base font-medium">hiyashasolarsystems@gmail.com</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Clock className="h-4 w-4" />
+                <span className="text-sm">Hiyasha Solar Systems LLP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
