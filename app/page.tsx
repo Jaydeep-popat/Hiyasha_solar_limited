@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { 
@@ -21,6 +21,44 @@ import {
   Leaf,
   DollarSign
 } from "lucide-react"
+
+// Custom hook for swipe functionality
+const useSwipe = (onSwipeLeft: () => void, onSwipeRight: () => void) => {
+  const touchStart = useRef<number | null>(null)
+  const touchEnd = useRef<number | null>(null)
+
+  const minSwipeDistance = 50
+
+  const onTouchStart = useCallback((e: React.TouchEvent) => {
+    touchEnd.current = null
+    touchStart.current = e.targetTouches[0].clientX
+  }, [])
+
+  const onTouchMove = useCallback((e: React.TouchEvent) => {
+    touchEnd.current = e.targetTouches[0].clientX
+  }, [])
+
+  const onTouchEnd = useCallback(() => {
+    if (!touchStart.current || !touchEnd.current) return
+    
+    const distance = touchStart.current - touchEnd.current
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+
+    if (isLeftSwipe) {
+      onSwipeLeft()
+    }
+    if (isRightSwipe) {
+      onSwipeRight()
+    }
+  }, [onSwipeLeft, onSwipeRight])
+
+  return {
+    onTouchStart,
+    onTouchMove,
+    onTouchEnd,
+  }
+}
 
 const heroImages = [
   {
@@ -172,6 +210,9 @@ export default function HomePage() {
   const prevTestimonial = () => {
     setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)
   }
+
+  // Swipe functionality for mobile
+  const swipeHandlers = useSwipe(nextTestimonial, prevTestimonial)
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
@@ -465,7 +506,10 @@ export default function HomePage() {
           </div>
           <div className="mx-auto mt-10 max-w-2xl">
             <div className="relative">
-              <div className="bg-white rounded-xl shadow-xl p-5 border border-gray-100 relative overflow-hidden">
+              <div 
+                className="bg-white rounded-xl shadow-xl p-5 border border-gray-100 relative overflow-hidden cursor-grab active:cursor-grabbing select-none"
+                {...swipeHandlers}
+              >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 to-blue-500"></div>
                 <div className="flex items-center gap-4 mb-3">
                   <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
@@ -493,21 +537,57 @@ export default function HomePage() {
                   <div className="font-bold text-gray-900">{testimonials[currentTestimonial].name}</div>
                   <div className="text-blue-600 font-medium text-sm">{testimonials[currentTestimonial].role}</div>
                 </div>
+                
+                {/* Swipe hint for mobile */}
+                <div className="absolute bottom-2 right-2 text-xs text-gray-400 hidden sm:block">
+                  ← Swipe to navigate →
+                </div>
               </div>
+              
+              {/* Desktop Navigation Buttons */}
               <button
                 onClick={prevTestimonial}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-shadow"
+                className="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-shadow hover:scale-110"
               >
                 <ChevronLeft className="h-6 w-6 text-gray-600" />
               </button>
               <button
                 onClick={nextTestimonial}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-shadow"
+                className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-shadow hover:scale-110"
               >
                 <ChevronRight className="h-6 w-6 text-gray-600" />
               </button>
+              
+              {/* Mobile Navigation Buttons */}
+              <div className="sm:hidden flex justify-between items-center mt-4 px-4">
+                <button
+                  onClick={prevTestimonial}
+                  className="bg-white rounded-full p-3 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110 border border-gray-200"
+                >
+                  <ChevronLeft className="h-5 w-5 text-gray-600" />
+                </button>
+                <div className="flex space-x-2">
+                  {testimonials.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentTestimonial(index)}
+                      className={`w-3 h-3 rounded-full transition-colors ${
+                        index === currentTestimonial ? "bg-green-600" : "bg-gray-300"
+                      }`}
+                    />
+                  ))}
+                </div>
+                <button
+                  onClick={nextTestimonial}
+                  className="bg-white rounded-full p-3 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110 border border-gray-200"
+                >
+                  <ChevronRight className="h-5 w-5 text-gray-600" />
+                </button>
+              </div>
             </div>
-            <div className="flex justify-center mt-4 space-x-2">
+            
+            {/* Desktop Dots */}
+            <div className="hidden sm:flex justify-center mt-4 space-x-2">
               {testimonials.map((_, index) => (
                 <button
                   key={index}

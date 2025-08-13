@@ -1,111 +1,72 @@
-import Image from "next/image"
-import TeamCard from "@/components/TeamCard"
 import { Award, Users, Zap, Shield, Globe, TrendingUp, CheckCircle, Star } from "lucide-react"
 
-const teamMembers = [
-  {
-    name: "John Smith",
-    role: "CEO & Founder",
-    experience: "15+ years in renewable energy industry",
-    image: "/images/img.png",
-    bio: "Passionate about sustainable energy solutions with expertise in solar technology and business development.",
-    education: "MSc in Renewable Energy Engineering",
-    achievements: ["Led 500+ installations", "Industry speaker", "Green Energy Award 2022"]
-  },
-  {
-    name: "Sarah Wilson",
-    role: "Chief Technology Officer",
-    experience: "12+ years in solar technology development",
-    image: "/images/img_2.png",
-    bio: "Expert in solar panel technology and system optimization with focus on efficiency improvements.",
-    education: "PhD in Electrical Engineering",
-    achievements: ["15 patents", "Research publications", "Innovation Award 2023"]
-  },
-  {
-    name: "Michael Brown",
-    role: "Head of Installation",
-    experience: "10+ years in solar installation and maintenance",
-    image: "/images/img_3.png",
-    bio: "Specialized in large-scale commercial installations with emphasis on safety and quality.",
-    education: "Certified Solar Installer",
-    achievements: ["1000+ installations", "Safety certification", "Team leader"]
-  },
-  {
-    name: "Lisa Garcia",
-    role: "Customer Success Manager",
-    experience: "8+ years in customer relations and support",
-    image: "/images/img.png",
-    bio: "Dedicated to ensuring customer satisfaction and providing ongoing support for all installations.",
-    education: "MBA in Business Administration",
-    achievements: ["98% satisfaction rate", "Customer service award", "Support team lead"]
-  },
-]
+
 
 const milestones = [
   {
-    year: "2015",
-    title: "Company Founded",
-    description: "SolarTech Solutions was established with a vision to make solar energy accessible to everyone.",
+    year: "Foundation",
+    title: "Company Established",
+    description: "Hiyasha Solar Systems was founded with a vision to lead India's renewable energy sector through innovative solar solutions.",
     icon: "🌱",
-    achievements: ["First office opened", "5 team members", "50 installations"]
+    achievements: ["Team of technocrats", "EPC expertise", "Sustainable focus"]
   },
   {
-    year: "2017",
-    title: "1,000 Installations",
-    description: "Reached our first major milestone of 1,000 successful solar installations.",
-    icon: "📈",
-    achievements: ["Expanded team to 25", "New service areas", "Partnerships formed"]
+    year: "Vision Set",
+    title: "20 MW Annual Target",
+    description: "Set ambitious goal to deliver 20 MW of solar power installations annually, promoting clean energy across India.",
+    icon: "🎯",
+    achievements: ["Annual capacity target", "Clean energy promotion", "National impact"]
   },
   {
-    year: "2019",
-    title: "Commercial Expansion",
-    description: "Expanded services to include large-scale commercial solar projects.",
-    icon: "🏢",
-    achievements: ["Commercial division", "Large-scale projects", "Industry recognition"]
+    year: "Client Growth",
+    title: "15+ Valuable Clients",
+    description: "Successfully served diverse clientele including healthcare, manufacturing, education, and industrial sectors.",
+    icon: "🤝",
+    achievements: ["Healthcare sector", "Manufacturing clients", "Educational institutions"]
   },
   {
-    year: "2021",
-    title: "Industry Recognition",
-    description: 'Received the "Solar Installer of the Year" award from the Renewable Energy Association.',
+    year: "Service Expansion",
+    title: "Comprehensive Solutions",
+    description: "Expanded services to include residential rooftop, industrial rooftop, and ground mount solar systems.",
+    icon: "⚡",
+    achievements: ["Residential solutions", "Industrial rooftops", "Ground mount systems"]
+  },
+  {
+    year: "Today",
+    title: "Leading Solar EPC",
+    description: "Established as a trusted leader in solar EPC solutions with excellence in engineering and sustainability.",
     icon: "🏆",
-    achievements: ["Award winner", "Media coverage", "Industry speaker"]
-  },
-  {
-    year: "2023",
-    title: "10,000+ Happy Customers",
-    description: "Celebrated serving over 10,000 satisfied customers across the region.",
-    icon: "🎉",
-    achievements: ["10,000+ customers", "Regional expansion", "Technology innovation"]
+    achievements: ["EPC excellence", "Engineering quality", "Carbon reduction"]
   },
 ]
 
 const stats = [
-  { number: "10,000+", label: "Happy Customers", icon: Users },
-  { number: "50MW+", label: "Solar Power Installed", icon: Zap },
-  { number: "98%", label: "Customer Satisfaction", icon: Star },
-  { number: "25+", label: "Years Combined Experience", icon: Award },
+  { number: "20 MW", label: "Annual Installation Target", icon: Zap },
+  { number: "15+", label: "Valuable Clients", icon: Users },
+  { number: "100%", label: "EPC Excellence", icon: Star },
+  { number: "24/7", label: "Customer Support", icon: Award },
 ]
 
 const values = [
   {
-    title: "Sustainability First",
-    description: "Committed to environmental responsibility in all our operations and solutions.",
+    title: "Customized Solutions",
+    description: "Tailored solar solutions for unique energy requirements, ensuring efficiency and cost savings.",
     icon: Globe
   },
   {
-    title: "Innovation Driven",
-    description: "Continuously improving technology and processes to deliver better results.",
-    icon: TrendingUp
-  },
-  {
-    title: "Quality Assured",
-    description: "Rigorous quality control ensures every installation meets the highest standards.",
+    title: "High-Quality Products",
+    description: "Partnerships with top-tier manufacturers, guaranteeing durability, high performance, and excellent warranties.",
     icon: Shield
   },
   {
-    title: "Customer Focused",
-    description: "Your satisfaction is our priority, with dedicated support throughout your journey.",
+    title: "Comprehensive Support",
+    description: "End-to-end support from consultation to installation, with a dedicated customer service team.",
     icon: CheckCircle
+  },
+  {
+    title: "Affordable & Transparent",
+    description: "Competitive pricing with no hidden fees and clear cost breakdowns for all projects.",
+    icon: TrendingUp
   },
 ]
 
@@ -118,11 +79,11 @@ export default function AboutPage() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold tracking-tight text-gray-900">
-              About <span className="gradient-text">SolarTech Solutions</span>
+              About <span className="gradient-text">Hiyasha Solar Systems</span>
             </h1>
             <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600">
-              Leading the renewable energy revolution with innovative solar solutions and exceptional customer service
-              since 2015.
+              Leading India's renewable energy sector with innovative solar solutions and a team of experienced technocrats 
+              dedicated to sustainable solar EPC solutions.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
@@ -162,48 +123,64 @@ export default function AboutPage() {
       {/* Company Story Section */}
       <section className="py-16 sm:py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-12 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-center">
-            <div className="lg:pr-8 lg:pt-4">
-              <div className="lg:max-w-lg">
-                <h2 className="text-base font-semibold leading-7 text-green-600">Our Story</h2>
-                <p className="mt-2 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900">
-                  Pioneering Solar Innovation
-                </p>
-                <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600">
-                  Founded in 2015 by a team of renewable energy enthusiasts, SolarTech Solutions began with a simple
-                  mission: to make clean, sustainable energy accessible to homes and businesses everywhere.
-                </p>
-                <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600">
-                  Today, we're proud to be one of the region's leading solar installation companies, having helped
-                  thousands of customers reduce their carbon footprint while saving money on energy costs.
-                </p>
-                <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-4">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-green-600" />
-                    <span className="text-sm font-medium text-gray-700">Certified Installers</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-green-600" />
-                    <span className="text-sm font-medium text-gray-700">25-Year Warranty</span>
-                  </div>
+          <div className="mx-auto max-w-2xl">
+            <div className="text-center">
+              <h2 className="text-base font-semibold leading-7 text-green-600">About Us</h2>
+              <p className="mt-2 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900">
+                Leading India's Renewable Energy Sector
+              </p>
+              <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600">
+                Hiyasha Solar Systems takes an innovative approach to leading India's renewable energy sectors. 
+                Our team of technocrats is dedicated to delivering sustainable solar EPC solutions with excellence 
+                in engineering and a commitment to reducing carbon footprints.
+              </p>
+              <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600">
+                We specialize in comprehensive solar solutions including residential rooftop, industrial rooftop, 
+                and ground mount systems, serving diverse sectors from healthcare to manufacturing.
+              </p>
+              <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-green-600" />
+                  <span className="text-sm font-medium text-gray-700">Certified Installers</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-green-600" />
+                  <span className="text-sm font-medium text-gray-700">25-Year Warranty</span>
                 </div>
               </div>
             </div>
-            <div className="relative">
-              <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/img_2.png"
-                  alt="Solar installation team working"
-                  width={800}
-                  height={600}
-                  className="w-full h-full object-cover object-center"
-                  priority
-                />
+          </div>
+        </div>
+      </section>
+
+      {/* Vision & Mission Section */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-blue-900 via-green-900 to-blue-800">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+            {/* Vision */}
+            <div className="text-center lg:text-left">
+              <div className="bg-yellow-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto lg:mx-0 mb-6">
+                <span className="text-2xl font-bold text-blue-900">🎯</span>
               </div>
-              <div className="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-lg p-4 hidden sm:block">
-                <div className="text-2xl font-bold text-green-600">15+</div>
-                <div className="text-sm text-gray-600">Years Experience</div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-yellow-400 mb-6">OUR VISION</h2>
+              <p className="text-lg sm:text-xl leading-8 text-white">
+                To deliver <span className="text-yellow-400 font-bold">20 MW of solar power</span> installations annually, 
+                promoting clean energy and fostering a greener planet. Our team of technocrats is committed to leading 
+                India's renewable energy transformation.
+              </p>
+            </div>
+            
+            {/* Mission */}
+            <div className="text-center lg:text-left">
+              <div className="bg-yellow-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto lg:mx-0 mb-6">
+                <span className="text-2xl font-bold text-blue-900">⚡</span>
               </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-yellow-400 mb-6">OUR MISSION</h2>
+              <p className="text-lg sm:text-xl leading-8 text-white">
+                To provide sustainable solar EPC solutions with excellence in engineering, reducing carbon footprints 
+                and creating a cleaner tomorrow. We are passionate about positive environmental impact and innovative 
+                technology.
+              </p>
             </div>
           </div>
         </div>
@@ -213,7 +190,7 @@ export default function AboutPage() {
       <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-gray-50 via-green-50 to-blue-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900">Our Values</h2>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900">Why Choose Us</h2>
             <p className="mt-4 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600">
               The principles that guide everything we do.
             </p>
@@ -232,55 +209,46 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-16 sm:py-24 lg:py-32">
+      {/* Valuable Clients Section */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900">Meet Our Team</h2>
-            <p className="mt-4 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600">
-              Our experienced professionals are dedicated to providing you with the best solar solutions.
+          <div className="mx-auto max-w-2xl text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white">Our Valuable Clients</h2>
+            <p className="mt-4 text-base sm:text-lg leading-7 sm:leading-8 text-gray-300">
+              Trusted by leading companies across diverse sectors in India.
             </p>
           </div>
-          <div className="mx-auto mt-12 sm:mt-16 lg:mt-20 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 xl:grid-cols-4">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <div className="relative">
-                  <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      width={400}
-                      height={400}
-                      className="h-48 w-full object-cover object-center"
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                  <p className="text-green-600 font-semibold mb-2">{member.role}</p>
-                  <p className="text-sm text-gray-600 mb-3">{member.experience}</p>
-                  <p className="text-sm text-gray-600 mb-4">{member.bio}</p>
-                  <div className="space-y-2">
-                    <div className="text-xs text-gray-500 font-medium">Education: {member.education}</div>
-                    <div className="flex flex-wrap gap-1">
-                      {member.achievements.map((achievement, idx) => (
-                        <span
-                          key={idx}
-                          className="inline-flex items-center gap-1 bg-green-50 text-green-700 text-xs px-2 py-1 rounded-full"
-                        >
-                          <CheckCircle className="h-3 w-3" />
-                          {achievement}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8">
+            {[
+              "Vihana Health Care LLP",
+              "Shayna Polymers LLP", 
+              "Pethapara Surgical Hospital",
+              "Soriso Granito",
+              "Shivana Polymers LLP",
+              "Himaalay Thermoplast",
+              "P.G. Patel College",
+              "Tiptop ACP Elevation",
+              "Honda Vinayak Honda",
+              "Angel Floor Tiles",
+              "Terra Plastwood LLP",
+              "LuShine Industries",
+              "Karam",
+              "Saanvi Gel Industries LLP",
+              "Himsheela Plast"
+            ].map((client, index) => (
+              <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center hover:bg-white/20 transition-all duration-300 border border-white/20">
+                <div className="text-2xl sm:text-3xl mb-3">🏢</div>
+                <h3 className="text-sm sm:text-base font-semibold text-white">{client}</h3>
               </div>
             ))}
           </div>
+          <div className="mt-12 text-center">
+            <p className="text-lg text-blue-300 font-semibold">FOSTER A GREENER PLANET</p>
+          </div>
         </div>
       </section>
+
+
 
       {/* Timeline Section */}
       <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50">
@@ -333,17 +301,18 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white">
-              Ready to Go Solar?
+              Ready to Harness Solar Power?
             </h2>
             <p className="mt-4 text-base sm:text-lg leading-7 sm:leading-8 text-white/90">
-              Join thousands of satisfied customers who have made the switch to clean, renewable energy.
+              Partner with a trusted leader in solar energy. Let us help you reduce energy costs, increase property value, 
+              and create a cleaner tomorrow.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <a href="/contact" className="btn-primary text-base sm:text-lg">
                 Get Free Consultation
               </a>
-              <a href="/quote" className="btn-secondary text-base sm:text-lg">
-                Get Free Quote
+              <a href="/products" className="btn-secondary text-base sm:text-lg">
+                Explore Solutions
               </a>
             </div>
           </div>

@@ -5,7 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 
-import { Phone, Mail, MapPin, Clock } from "lucide-react"
+import { Phone, Mail, MapPin, Clock, Download, Eye, FileText } from "lucide-react"
 
 const faqs = [
   {
@@ -176,6 +176,86 @@ export default function ContactPage() {
                 </Link>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Catalog Section */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-green-50 via-blue-50 to-orange-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">
+              Explore Our <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Product Catalog</span>
+            </h2>
+            <p className="mt-6 text-lg sm:text-xl leading-8 text-gray-600">
+              Discover our comprehensive range of solar solutions, from residential panels to commercial installations. 
+              Get detailed specifications, pricing, and technical information.
+            </p>
+            
+            {/* Catalog Preview Card */}
+            <div className="mt-12 sm:mt-16 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+              <div className="p-8 sm:p-12">
+                <div className="flex items-center justify-center mb-6">
+                  <div className="bg-gradient-to-br from-green-500 to-blue-600 p-4 rounded-full">
+                    <FileText className="h-12 w-12 text-white" />
+                  </div>
+                </div>
+                
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                  Hiyasha Solar Systems - Product Catalog 2024
+                </h3>
+                
+                <p className="text-gray-600 mb-8 text-lg">
+                  Comprehensive guide featuring our latest solar panels, inverters, batteries, and complete system solutions. 
+                  Perfect for homeowners, businesses, and solar enthusiasts.
+                </p>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                  {/* View Catalog Button */}
+                  <Link
+                    href="https://drive.google.com/file/d/18KP3Qael27rIN6arzyQTLwaS_K2uqkKL/view"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-green-600 to-green-700 text-white font-semibold rounded-xl hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  >
+                    <Eye className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                    <span>View Catalog Online</span>
+                  </Link>
+                  
+                  {/* Download Catalog Button */}
+                  <Link
+                    href="https://drive.google.com/uc?export=download&id=18KP3Qael27rIN6arzyQTLwaS_K2uqkKL"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  >
+                    <Download className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                    <span>Download PDF</span>
+                  </Link>
+                </div>
+                
+                <div className="mt-8 pt-8 border-t border-gray-200">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-500">
+                    <div className="flex items-center justify-center gap-2">
+                      <FileText className="h-4 w-4" />
+                      <span>PDF Format</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2">
+                      <span>📄</span>
+                      <span>Detailed Specs</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2">
+                      <span>⚡</span>
+                      <span>Latest Products</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <p className="mt-8 text-sm text-gray-500">
+              * The catalog is free to download and contains comprehensive information about our solar solutions.
+            </p>
           </div>
         </div>
       </section>
