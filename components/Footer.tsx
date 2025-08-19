@@ -107,7 +107,8 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold text-white mb-3">Our Location</h3>
             <Link
-              href="https://www.google.com/maps/place/Hiyasha+Solar+Systems+LLP/@22.7985409,70.8237983,17z"
+              // href="https://www.google.com/maps/place/Hiyasha+Solar+Systems+LLP/@22.7985409,70.8237983,17z"
+              href="https://www.google.com/maps/place/Hiyasha+Solar+Systems+LLP/@22.7985409,70.8237983,17z/data=!4m6!3m5!1s0x39598d9d1e74e5e5:0x17084f2a77f27572!8m2!3d22.7985409!4d70.8263732!16s%2Fg%2F11xmrygr8y?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
               className="block group"
