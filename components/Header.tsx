@@ -82,10 +82,23 @@ export default function Header() {
           ))}
         </div>
 
-        {/* Desktop Quote Button */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link href="/contact" className="btn-primary text-sm xl:text-base px-6 py-2.5">
-            Get a Quote
+        {/* Desktop Catalog Buttons */}
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-3">
+          <Link
+            href="https://drive.google.com/file/d/18KP3Qael27rIN6arzyQTLwaS_K2uqkKL/view"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary text-sm xl:text-base px-6 py-2.5"
+          >
+            View Catalog
+          </Link>
+          <Link
+            href="https://drive.google.com/uc?export=download&id=18KP3Qael27rIN6arzyQTLwaS_K2uqkKL"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary text-sm xl:text-base px-6 py-2.5"
+          >
+            Download PDF
           </Link>
         </div>
       </nav>
@@ -134,13 +147,24 @@ export default function Header() {
                     {item.name}
                   </Link>
                 ))}
-                <div className="mt-6 pt-6 border-t border-gray-200">
+                <div className="mt-6 pt-6 border-t border-gray-200 space-y-3">
                   <Link
-                    href="/contact"
+                    href="https://drive.google.com/file/d/18KP3Qael27rIN6arzyQTLwaS_K2uqkKL/view"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-full block text-center btn-primary"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Get a Quote
+                    View Catalog
+                  </Link>
+                  <Link
+                    href="https://drive.google.com/uc?export=download&id=18KP3Qael27rIN6arzyQTLwaS_K2uqkKL"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full block text-center btn-primary"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Download PDF
                   </Link>
                 </div>
               </div>
