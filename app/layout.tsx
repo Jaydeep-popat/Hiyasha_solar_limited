@@ -6,10 +6,13 @@ import Footer from "@/components/Footer"
 import WhatsAppButton from "@/components/WhatsAppButton"
 
 export const metadata: Metadata = {
-  title: "SolarTech Solutions - Powering the Future with Solar Energy",
+  title: "Hiyasha Solar Systems",
   description:
     "Leading solar energy solutions provider offering residential and commercial solar installations, maintenance, and consultation services.",
-    generator: 'v0.dev'
+  icons: {
+    icon: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1753778237/logo_2_oxi3zj.png",
+  },
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({

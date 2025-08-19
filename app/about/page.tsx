@@ -311,8 +311,8 @@ export default function AboutPage() {
               <a href="/contact" className="btn-primary text-base sm:text-lg">
                 Get Free Consultation
               </a>
-              <a href="/products" className="btn-secondary text-base sm:text-lg">
-                Explore Solutions
+              <a href="/services" className="btn-secondary text-base sm:text-lg">
+                Explore Services
               </a>
             </div>
           </div>

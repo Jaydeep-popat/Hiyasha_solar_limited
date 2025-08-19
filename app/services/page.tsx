@@ -18,14 +18,13 @@ import {
   Mail,
   ArrowRight,
   Star,
-  DollarSign,
   Leaf,
   Home,
   Building,
   Settings,
   BarChart3,
   FileText,
-  Tool
+  
 } from "lucide-react"
 
 const services = [
@@ -34,7 +33,7 @@ const services = [
     name: "Residential Solar Installation",
     description: "Transform your home with clean, renewable solar energy designed for maximum efficiency and savings.",
     detailedDescription: "Our residential solar installation service is designed to make clean energy accessible to every homeowner. We begin with a comprehensive site assessment to evaluate your property's solar potential, considering factors like roof orientation, shading, and local weather patterns. Our certified technicians then design a custom solar system that maximizes your energy production while maintaining the aesthetic appeal of your home. We handle all aspects of the installation process, from obtaining necessary permits to final system commissioning, ensuring a seamless experience from start to finish. With our 25-year warranty and ongoing support, you can enjoy reliable clean energy for decades to come.",
-    image: "/images/img.png",
+    image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1754466661/WhatsApp_Image_2025-08-06_at_07.36.47_afa49731_mcnaia.jpg",
     icon: Home,
     features: ["Free site assessment", "Custom system design", "Professional installation", "25-year warranty", "Performance monitoring", "Ongoing support"],
     duration: "2-5 days",
@@ -51,7 +50,7 @@ const services = [
       { step: 1, title: "Site Assessment", description: "Comprehensive evaluation of your property's solar potential", icon: BarChart3 },
       { step: 2, title: "System Design", description: "Custom solar solution tailored to your energy needs", icon: Settings },
       { step: 3, title: "Permit & Approval", description: "Handle all paperwork and regulatory requirements", icon: FileText },
-      { step: 4, title: "Installation", description: "Professional installation by certified technicians", icon: Tool },
+      { step: 4, title: "Installation", description: "Professional installation by certified technicians", icon: Wrench },
       { step: 5, title: "Commissioning", description: "System testing and performance verification", icon: CheckCircle }
     ],
     stats: {
@@ -66,7 +65,7 @@ const services = [
     name: "Commercial Solar Solutions",
     description: "Large-scale solar installations for businesses with maximum ROI and operational efficiency.",
     detailedDescription: "Our commercial solar solutions are designed to meet the unique energy demands of businesses while providing significant cost savings and environmental benefits. We specialize in large-scale installations for offices, warehouses, retail spaces, and industrial facilities. Our team conducts thorough energy audits to understand your current consumption patterns and designs systems that can offset 100% of your energy needs. We work with businesses of all sizes, from small offices to large manufacturing facilities, providing scalable solutions that grow with your business. Our commercial installations include advanced monitoring systems, allowing you to track energy production and consumption in real-time, optimizing your operational efficiency.",
-    image: "/images/img_2.png",
+    image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1755571956/com_qyoctq.jpg",
     icon: Building,
     features: ["Energy audit", "Custom design", "Large-scale installation", "Advanced monitoring", "ROI analysis", "Ongoing maintenance"],
     duration: "1-3 weeks",
@@ -83,7 +82,7 @@ const services = [
       { step: 1, title: "Energy Audit", description: "Comprehensive analysis of current energy consumption", icon: BarChart3 },
       { step: 2, title: "System Design", description: "Large-scale solar solution optimization", icon: Settings },
       { step: 3, title: "Project Planning", description: "Detailed timeline and resource allocation", icon: FileText },
-      { step: 4, title: "Installation", description: "Professional large-scale installation", icon: Tool },
+      { step: 4, title: "Installation", description: "Professional large-scale installation", icon: Wrench },
       { step: 5, title: "Commissioning", description: "System testing and staff training", icon: CheckCircle }
     ],
     stats: {
@@ -98,7 +97,7 @@ const services = [
     name: "Solar System Maintenance",
     description: "Comprehensive maintenance services to ensure your solar system operates at peak efficiency.",
     detailedDescription: "Regular maintenance is crucial for optimal solar system performance and longevity. Our comprehensive maintenance program includes regular cleaning, performance monitoring, component inspection, and preventive maintenance to maximize your system's efficiency and lifespan. We use advanced monitoring technology to track your system's performance in real-time, identifying potential issues before they become problems. Our maintenance team includes certified technicians who are trained to work with all major solar equipment brands. We provide detailed maintenance reports with recommendations for system optimization, ensuring your investment continues to deliver maximum returns. With our proactive maintenance approach, you can enjoy worry-free solar energy for decades.",
-    image: "/images/img_3.png",
+    image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1755571913/designing-commercial-solar-installation_zrpfes.jpg",
     icon: Settings,
     features: ["Regular cleaning", "Performance monitoring", "Component inspection", "Preventive maintenance", "Detailed reporting", "Emergency support"],
     duration: "2-4 hours",
@@ -115,7 +114,7 @@ const services = [
       { step: 1, title: "System Inspection", description: "Comprehensive component and performance check", icon: BarChart3 },
       { step: 2, title: "Panel Cleaning", description: "Professional cleaning for optimal light absorption", icon: Settings },
       { step: 3, title: "Performance Analysis", description: "Detailed efficiency and output analysis", icon: BarChart3 },
-      { step: 4, title: "Component Check", description: "Inverter, wiring, and mounting inspection", icon: Tool },
+      { step: 4, title: "Component Check", description: "Inverter, wiring, and mounting inspection", icon: Wrench },
       { step: 5, title: "Report & Recommendations", description: "Detailed report with improvement suggestions", icon: FileText }
     ],
     stats: {
@@ -158,33 +157,33 @@ const benefits = [
   },
 ]
 
+
 const testimonials = [
   {
-    name: "Sarah Johnson",
+    name: "Pravin Vadhaiya",
     role: "Homeowner",
-    content: "SolarTech installed our system in just 3 days. Our energy bills dropped by 85% in the first month! The installation was professional and the ongoing support has been excellent.",
+    content: "SolarTech Solutions turned our rooftop into a powerhouse of clean energy. Our electricity bills have gone down by almost 80%, and we feel proud to contribute to a greener India.",
     rating: 5,
-    image: "/images/img.png",
-    savings: "₹1,99,200/year"
+    image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1755572430/WhatsApp_Image_2025-08-19_at_08.19.28_97cc58fd_fkwqk5.jpg",
+    savings: "₹1,95,000/year"
   },
   {
-    name: "Mike Chen",
-    role: "Business Owner",
-    content: "The commercial solar system has exceeded our expectations. Great ROI and excellent customer service. The maintenance team keeps everything running smoothly.",
+    name: "BhadreshBhai Mathasuliya",
+    role: "Small Business Owner",
+    content: "Installing their commercial solar system was the best business decision I’ve made. The savings are huge, and their after-sales service is truly exceptional. They guided us through every step.",
     rating: 5,
-    image: "/images/img_2.png",
-    savings: "₹12,45,000/year"
+    image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1755572429/WhatsApp_Image_2025-08-19_at_08.29.11_bf79255c_otjoq0.jpg",
+    savings: "₹12,50,000/year"
   },
   {
-    name: "Lisa Rodriguez",
-    role: "Property Manager",
-    content: "Professional consultation helped us choose the perfect system for our multi-unit property. The team was knowledgeable and the results speak for themselves.",
+    name: "GauriBen Kanani",
+    role: "Environmental Volunteer",
+    content: "Finally found a solar company that’s as passionate about sustainability as I am. Their team ensured everything was done with care for both the environment and our needs.",
     rating: 5,
-    image: "/images/img_3.png",
-    savings: "₹7,05,500/year"
+    image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1755572731/WhatsApp_Image_2025-08-19_at_08.35.02_30abdf97_s1an1v.jpg",
+    savings: "₹1,45,000/year"
   },
 ]
-
 const stats = [
   { number: "5000+", label: "Installations", icon: Zap },
   { number: "98%", label: "Customer Satisfaction", icon: Star },
@@ -193,9 +192,7 @@ const stats = [
 ]
 
 export default function ServicesPage() {
-  const [activeService, setActiveService] = useState(0)
   const [hoveredBenefit, setHoveredBenefit] = useState<number | null>(null)
-  const [hoveredService, setHoveredService] = useState<number | null>(null)
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
@@ -254,101 +251,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Overview Cards */}
-      <section className="py-16 sm:py-24 lg:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900">Our Solar Services</h2>
-            <p className="mt-4 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600">
-              Comprehensive solar solutions designed to meet your specific needs and maximize your investment.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div
-                key={service.id}
-                className={`bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 ${
-                  hoveredService === index ? 'ring-2 ring-green-500' : ''
-                }`}
-                onMouseEnter={() => setHoveredService(index)}
-                onMouseLeave={() => setHoveredService(null)}
-              >
-                <div className="relative">
-                  <div className="aspect-w-16 aspect-h-9 overflow-hidden">
-                    <Image
-                      src={service.image}
-                      alt={service.name}
-                      width={400}
-                      height={300}
-                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="absolute top-4 left-4">
-                    <div className="bg-green-600 text-white p-3 rounded-full shadow-lg">
-                      <service.icon className="h-6 w-6" />
-                    </div>
-                  </div>
-                  <div className="absolute top-4 right-4">
-                    <span className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-gray-700">
-                      {service.certification}
-                    </span>
-                  </div>
-                </div>
-                
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{service.name}</h3>
-                  <p className="text-gray-600 mb-4 line-clamp-3">{service.description}</p>
-                  
-                  {/* Service Stats */}
-                  <div className="grid grid-cols-2 gap-4 mb-4">
-                    <div className="text-center">
-                      <div className="text-lg font-bold text-green-600">
-                        {service.stats.averageSavings}
-                      </div>
-                      <div className="text-xs text-gray-500">Average Savings</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-lg font-bold text-blue-600">
-                        {service.stats.warranty}
-                      </div>
-                      <div className="text-xs text-gray-500">Warranty</div>
-                    </div>
-                  </div>
-                  
-                  {/* Key Features */}
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 mb-2">Key Features:</h4>
-                    <div className="grid grid-cols-1 gap-1">
-                      {service.features.slice(0, 3).map((feature, idx) => (
-                        <div key={idx} className="flex items-center gap-2">
-                          <CheckCircle className="h-3 w-3 text-green-600" />
-                          <span className="text-sm text-gray-600">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div className="flex gap-3">
-                    <Link
-                      href={`/services/${service.id}`}
-                      className="flex-1 bg-green-600 text-white px-4 py-2 rounded-md font-semibold hover:bg-green-500 transition-colors duration-300 text-center"
-                    >
-                      Learn More
-                    </Link>
-                    <Link
-                      href="/contact"
-                      className="flex-1 border border-gray-300 text-gray-700 px-4 py-2 rounded-md font-semibold hover:bg-gray-50 transition-colors duration-300 text-center"
-                    >
-                      Get Quote
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Services Overview Cards - removed as per request */}
 
       {/* Detailed Services Section */}
       <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-green-50">
@@ -375,14 +278,8 @@ export default function ServicesPage() {
                     <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900 mb-6">{service.name}</h2>
                     <p className="text-base sm:text-lg leading-7 sm:leading-8 text-gray-600 mb-8">{service.detailedDescription}</p>
                     
-                    {/* Service Stats */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-                      <div className="bg-green-50 rounded-lg p-4 text-center">
-                        <div className="text-lg font-bold text-green-600">
-                          {service.stats.averageSavings}
-                        </div>
-                        <div className="text-xs text-gray-600">Average Savings</div>
-                      </div>
+                    {/* Service Stats (price-related details removed) */}
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
                       <div className="bg-blue-50 rounded-lg p-4 text-center">
                         <div className="text-lg font-bold text-blue-600">{service.stats.installationTime}</div>
                         <div className="text-xs text-gray-600">Installation</div>
@@ -483,7 +380,7 @@ export default function ServicesPage() {
               Discover the many benefits of switching to clean, renewable solar energy.
             </p>
           </div>
-          <div className="mx-auto mt-12 sm:mt-16 lg:mt-20 lg:mt-24 lg:max-w-none">
+          <div className="mx-auto mt-12 sm:mt-16 lg:mt-24 lg:max-w-none">
             <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-8 sm:gap-y-12 lg:max-w-none lg:grid-cols-2 xl:grid-cols-4">
               {benefits.map((benefit, index) => (
                 <div 
@@ -565,10 +462,10 @@ export default function ServicesPage() {
                 Get Free Quote
               </Link>
               <Link
-                href="/products"
+                href="/contact"
                 className="text-white border border-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-green-600 transition-all duration-300 w-full sm:w-auto text-center"
               >
-                View Products
+                Contact Us
                 <ArrowRight className="inline ml-2 h-4 w-4" />
               </Link>
             </div>

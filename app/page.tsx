@@ -104,27 +104,27 @@ const featuredProducts = [
 
 const testimonials = [
   {
-    name: "Amit Sharma",
+    name: "Pravin Vadhaiya",
     role: "Homeowner",
     content: "SolarTech Solutions turned our rooftop into a powerhouse of clean energy. Our electricity bills have gone down by almost 80%, and we feel proud to contribute to a greener India.",
     rating: 5,
-    image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1751339032/x6ldvsgylsamcoi0wzte.png",
+    image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1755572430/WhatsApp_Image_2025-08-19_at_08.19.28_97cc58fd_fkwqk5.jpg",
     savings: "₹1,95,000/year"
   },
   {
-    name: "Priya Nair",
+    name: "BhadreshBhai Mathasuliya",
     role: "Small Business Owner",
     content: "Installing their commercial solar system was the best business decision I’ve made. The savings are huge, and their after-sales service is truly exceptional. They guided us through every step.",
     rating: 5,
-    image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1750787751/qsuykamrtcxbhgnhnjwd.webp",
+    image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1755572429/WhatsApp_Image_2025-08-19_at_08.29.11_bf79255c_otjoq0.jpg",
     savings: "₹12,50,000/year"
   },
   {
-    name: "Rahul Mehta",
+    name: "GauriBen Kanani",
     role: "Environmental Volunteer",
     content: "Finally found a solar company that’s as passionate about sustainability as I am. Their team ensured everything was done with care for both the environment and our needs.",
     rating: 5,
-    image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1749657365/rtmdwxpvwppy3lu9kuif.jpg",
+    image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1755572731/WhatsApp_Image_2025-08-19_at_08.35.02_30abdf97_s1an1v.jpg",
     savings: "₹1,45,000/year"
   },
 ]
@@ -268,10 +268,10 @@ export default function HomePage() {
                 Get a Free Quote
               </Link>
               <Link
-                href="/products"
+                href="/services"
                 className="text-lg font-semibold leading-6 text-white hover:text-green-400 transition-colors duration-300 group drop-shadow-md"
               >
-                View Products
+                Our Services
                 <ArrowRight className="inline ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </div>
@@ -369,9 +369,6 @@ export default function HomePage() {
                     height={300}
                     className="h-40 w-full object-cover"
                   />
-                  <div className="absolute top-2 right-2 bg-green-600 text-white px-2 py-1 rounded-full text-sm font-semibold">
-                    {product.price}
-                  </div>
                 </div>
                 <div className="p-5">
                   <div className="flex items-center justify-between mb-2">
@@ -395,7 +392,7 @@ export default function HomePage() {
                   </div>
                   
                   <Link
-                    href="/products"
+                    href="/services"
                     className="inline-flex items-center text-green-600 hover:text-green-500 font-medium group"
                   >
                     Learn More 
@@ -618,10 +615,10 @@ export default function HomePage() {
                 Get Free Quote
               </Link>
               <Link
-                href="/products"
+                href="/services"
                 className="text-white border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-green-600 transition-all duration-300 w-full sm:w-auto text-center transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
-                View Products
+                Our Services
                 <ArrowRight className="inline ml-2 h-5 w-5" />
               </Link>
             </div>
