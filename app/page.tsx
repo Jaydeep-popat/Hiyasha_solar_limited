@@ -265,7 +265,7 @@ export default function HomePage() {
             </p>
             <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6">
               <Link href="/contact" className="btn-primary text-lg shadow-xl hover:scale-105 transition-transform duration-300">
-                Get a Free Quote
+                Contect us
               </Link>
               <Link
                 href="/services"
@@ -611,8 +611,8 @@ export default function HomePage() {
               <Link 
                 href="/contact" 
                 className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-3 rounded-full font-semibold transition-all duration-300 w-full sm:w-auto text-center transform hover:scale-105 shadow-lg hover:shadow-xl"
-              >
-                Get Free Quote
+              > 
+                Contact us
               </Link>
               <Link
                 href="/services"
@@ -625,11 +625,24 @@ export default function HomePage() {
             <div className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-4 text-white/80">
               <div className="flex items-center gap-2">
                 <Phone className="h-5 w-5" />
-                <span className="text-base font-medium">+91 97270 97971</span>
+                <Link 
+                  href="tel:+919727097971" 
+                  aria-label="Call +91 97270 97971"
+                  className="text-base font-medium"
+                >
+                  +91 97270 97971
+                </Link>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-5 w-5" />
-                <span className="text-base font-medium">hiyashasolarsystems@gmail.com</span>
+                <Link
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=hiyashasolarsystems@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-base font-medium"
+                >
+                  hiyashasolarsystems@gmail.com
+                </Link>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4" />

@@ -118,7 +118,7 @@ const services = [
       { step: 5, title: "Report & Recommendations", description: "Detailed report with improvement suggestions", icon: FileText }
     ],
     stats: {
-      maintenanceFrequency: "2-4 times/year",
+      installationTime: "2-4 times/year",
       responseTime: "24 hours",
       warranty: "10 years",
       efficiency: "Maintains 95%+"
@@ -320,21 +320,7 @@ export default function ServicesPage() {
                       </div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <Link
-                        href="/contact"
-                        className="inline-flex items-center justify-center rounded-md bg-green-600 px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 transition-all duration-300 hover:scale-105"
-                      >
-                        Get Free Quote
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                      <Link
-                        href={`/services/${service.id}`}
-                        className="inline-flex items-center justify-center rounded-md border border-gray-300 px-6 py-3 text-sm sm:text-base font-semibold text-gray-700 shadow-sm hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 transition-all duration-300"
-                      >
-                        Learn More
-                      </Link>
-                    </div>
+                    
                   </div>
                 </div>
                 
@@ -455,12 +441,6 @@ export default function ServicesPage() {
               Contact us today for a free consultation and discover how much you can save with solar energy.
             </p>
             <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6">
-              <Link 
-                href="/contact" 
-                className="bg-white text-green-600 px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors duration-300 w-full sm:w-auto text-center"
-              >
-                Get Free Quote
-              </Link>
               <Link
                 href="/contact"
                 className="text-white border border-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-green-600 transition-all duration-300 w-full sm:w-auto text-center"
@@ -472,11 +452,24 @@ export default function ServicesPage() {
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 text-white/80">
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <span className="text-sm">9727097971</span>
+                <Link 
+                  href="tel:+919727097971"
+                  aria-label="Call 9727097971"
+                  className="text-sm"
+                >
+                  +91 97270 97971
+                </Link>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <span className="text-sm">hiyashasolarsystems@gmail.com</span>
+                <Link
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=hiyashasolarsystems@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm"
+                >
+                  hiyashasolarsystems@gmail.com
+                </Link>
               </div>  
             </div>
           </div>

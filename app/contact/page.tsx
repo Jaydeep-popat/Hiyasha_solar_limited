@@ -64,9 +64,7 @@ export default function ContactPage() {
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 -mt-20 sm:-mt-32">
           <div className="mx-auto max-w-2xl text-center -mt-20">
             <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl drop-shadow-lg">
-              <span className="bg-gradient-to-r from-green-400 via-blue-400 to-orange-400 bg-clip-text text-transparent">
-                Contact Us
-              </span>
+              Contact Us
             </h1>
             <p className="mt-6 text-xl leading-8 text-gray-100 drop-shadow-md">
               Ready to start your solar journey? Get in touch with our experts for a free consultation.
@@ -100,7 +98,13 @@ export default function ContactPage() {
                   <dd className="text-base leading-6 text-gray-600">
                     <strong className="font-semibold text-gray-900">Phone:</strong>
                     <br />
-                    +91 97270 97971
+                    <Link 
+                      href="tel:+919727097971"
+                      aria-label="Call +91 97270 97971"
+                      className="text-green-600 hover:text-green-500"
+                    >
+                      +91 97270 97971
+                    </Link>
                   </dd>
                 </div>
                 <div className="flex gap-x-4">
@@ -111,7 +115,14 @@ export default function ContactPage() {
                   <dd className="text-base leading-6 text-gray-600">
                     <strong className="font-semibold text-gray-900">Email:</strong>
                     <br />
-                    hiyashasolarsystems@gmail.com
+                    <Link 
+                      href="https://mail.google.com/mail/?view=cm&fs=1&to=hiyashasolarsystems@gmail.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green-600 hover:text-green-500"
+                    >
+                      hiyashasolarsystems@gmail.com
+                    </Link>
                   </dd>
                 </div>
                 <div className="flex gap-x-4">
@@ -213,7 +224,7 @@ export default function ContactPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   {/* View Catalog Button */}
                   <Link
-                    href="https://drive.google.com/file/d/18KP3Qael27rIN6arzyQTLwaS_K2uqkKL/view"
+                    href="https://drive.google.com/file/d/1R0aoJpEk-3HjZu2nVoKjPTnvdPjOzeRh/view"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-green-600 to-green-700 text-white font-semibold rounded-xl hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
@@ -224,7 +235,7 @@ export default function ContactPage() {
                   
                   {/* Download Catalog Button */}
                   <Link
-                    href="https://drive.google.com/uc?export=download&id=18KP3Qael27rIN6arzyQTLwaS_K2uqkKL"
+                    href="https://drive.google.com/uc?export=download&id=1R0aoJpEk-3HjZu2nVoKjPTnvdPjOzeRh"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"

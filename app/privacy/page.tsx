@@ -196,8 +196,27 @@ export default function PrivacyPolicyPage() {
               </p>
               <div className="bg-gray-50 p-6 rounded-lg">
                 <p className="text-gray-700 mb-2"><strong>Hiyasha Solar Systems LLP</strong></p>
-                <p className="text-gray-600 mb-2">Email: hiyashasolarsystems@gmail.com</p>
-                <p className="text-gray-600 mb-2">Phone: +91 97270 97971</p>
+                <p className="text-gray-600 mb-2">
+                  Email: {""}
+                  <Link 
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=hiyashasolarsystems@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-green-600 hover:text-green-500"
+                  >
+                    hiyashasolarsystems@gmail.com
+                  </Link>
+                </p>
+                <p className="text-gray-600 mb-2">
+                  Phone: {""}
+                  <Link 
+                    href="tel:+919727097971"
+                    aria-label="Call +91 97270 97971"
+                    className="text-green-600 hover:text-green-500"
+                  >
+                    +91 97270 97971
+                  </Link>
+                </p>
                 <p className="text-gray-600">Address: Morabi, Gujarat, India</p>
               </div>
             </div>

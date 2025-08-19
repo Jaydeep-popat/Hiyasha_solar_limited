@@ -85,7 +85,7 @@ export default function Header() {
         {/* Desktop Catalog Buttons */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-3">
           <Link
-            href="https://drive.google.com/file/d/18KP3Qael27rIN6arzyQTLwaS_K2uqkKL/view"
+            href="https://drive.google.com/file/d/1R0aoJpEk-3HjZu2nVoKjPTnvdPjOzeRh/view"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary text-sm xl:text-base px-6 py-2.5"
@@ -93,7 +93,7 @@ export default function Header() {
             View Catalog
           </Link>
           <Link
-            href="https://drive.google.com/uc?export=download&id=18KP3Qael27rIN6arzyQTLwaS_K2uqkKL"
+            href="https://drive.google.com/uc?export=download&id=1R0aoJpEk-3HjZu2nVoKjPTnvdPjOzeRh"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary text-sm xl:text-base px-6 py-2.5"
@@ -149,7 +149,7 @@ export default function Header() {
                 ))}
                 <div className="mt-6 pt-6 border-t border-gray-200 space-y-3">
                   <Link
-                    href="https://drive.google.com/file/d/18KP3Qael27rIN6arzyQTLwaS_K2uqkKL/view"
+                    href="https://drive.google.com/file/d/1R0aoJpEk-3HjZu2nVoKjPTnvdPjOzeRh/view"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full block text-center btn-primary"
@@ -158,7 +158,7 @@ export default function Header() {
                     View Catalog
                   </Link>
                   <Link
-                    href="https://drive.google.com/uc?export=download&id=18KP3Qael27rIN6arzyQTLwaS_K2uqkKL"
+                    href="https://drive.google.com/uc?export=download&id=1R0aoJpEk-3HjZu2nVoKjPTnvdPjOzeRh"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full block text-center btn-primary"

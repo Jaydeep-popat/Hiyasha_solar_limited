@@ -69,13 +69,24 @@ export default function Footer() {
             <div className="space-y-2">
               <div className="flex items-center space-x-3 hover:text-green-400 transition-colors duration-300">
                 <Phone className="h-4 w-4 text-green-400 flex-shrink-0" />
-                <span className="text-sm text-gray-300">+91 97270 97971</span>
+                <Link 
+                  href="tel:+919727097971"
+                  aria-label="Call +91 97270 97971"
+                  className="text-sm text-gray-300"
+                >
+                  +91 97270 97971
+                </Link>
               </div>
               <div className="flex items-center space-x-3 hover:text-green-400 transition-colors duration-300">
                 <Mail className="h-4 w-4 text-green-400 flex-shrink-0" />
-                <span className="text-sm text-gray-300 break-all">
+                <Link
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=hiyashasolarsystems@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-gray-300 break-all"
+                >
                   hiyashasolarsystems@gmail.com
-                </span>
+                </Link>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="h-4 w-4 text-green-400 flex-shrink-0 mt-0.5" />
