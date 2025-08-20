@@ -81,15 +81,15 @@ const featuredProducts = [
     description: "High-efficiency monocrystalline solar panels with 25-year warranty.",
     image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1754466660/WhatsApp_Image_2025-08-06_at_07.36.48_21f465ce_cwvawd.jpg",
     price: "₹24,899",
-    rating: 4.8,
+    rating: 4.5,
     features: ["21.5% efficiency", "25-year warranty", "Weather resistant", "Easy installation"]
   },
   {
     name: "Smart Inverter Pro",
     description: "Advanced inverter technology with real-time monitoring capabilities.",
-    image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1754968096/Gemini_Generated_Image_xh38iwxh38iwxh38_kfcevz.png",
+    image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1754968702/099fea32-c3b0-424d-822a-fc3cc0bb5a8f_nt61ll.jpg",
     price: "₹1,07,999",
-    rating: 4.9,
+    rating: 4.6,
     features: ["WiFi connectivity", "Real-time monitoring", "Smart optimization", "Mobile app"]
   },
   {
@@ -102,12 +102,12 @@ const featuredProducts = [
   },
 ]
 
-const testimonials = [
+const testimonials = [  
   {
     name: "Pravin Vadhaiya",
     role: "Homeowner",
     content: "SolarTech Solutions turned our rooftop into a powerhouse of clean energy. Our electricity bills have gone down by almost 80%, and we feel proud to contribute to a greener India.",
-    rating: 5,
+    rating: 4.3,
     image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1755572430/WhatsApp_Image_2025-08-19_at_08.19.28_97cc58fd_fkwqk5.jpg",
     savings: "₹1,95,000/year"
   },
@@ -115,7 +115,7 @@ const testimonials = [
     name: "BhadreshBhai Mathasuliya",
     role: "Small Business Owner",
     content: "Installing their commercial solar system was the best business decision I’ve made. The savings are huge, and their after-sales service is truly exceptional. They guided us through every step.",
-    rating: 5,
+    rating: 4.7,
     image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1755572429/WhatsApp_Image_2025-08-19_at_08.29.11_bf79255c_otjoq0.jpg",
     savings: "₹12,50,000/year"
   },
@@ -123,7 +123,7 @@ const testimonials = [
     name: "GauriBen Kanani",
     role: "Environmental Volunteer",
     content: "Finally found a solar company that’s as passionate about sustainability as I am. Their team ensured everything was done with care for both the environment and our needs.",
-    rating: 5,
+    rating: 4.55,
     image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1755572731/WhatsApp_Image_2025-08-19_at_08.35.02_30abdf97_s1an1v.jpg",
     savings: "₹1,45,000/year"
   },
@@ -131,7 +131,7 @@ const testimonials = [
 
 
 const stats = [
-  { number: "10,000+", label: "Happy Customers", icon: Users },
+  { number: "1,000+", label: "Happy Customers", icon: Users },
   { number: "50MW+", label: "Solar Power Installed", icon: Zap },
   { number: "98%", label: "Customer Satisfaction", icon: Star },
   { number: "25+", label: "Years Experience", icon: Award },
@@ -215,12 +215,23 @@ export default function HomePage() {
   const swipeHandlers = useSwipe(nextTestimonial, prevTestimonial)
 
   const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <Star
-        key={i}
-        className={`h-4 w-4 ${i < rating ? "text-yellow-400 fill-current" : "text-gray-300"}`}
-      />
-    ))
+    const starPath = "M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+    return Array.from({ length: 5 }, (_, i) => {
+      const fillLevel = Math.max(0, Math.min(1, rating - i))
+      const percentage = Math.round(fillLevel * 100)
+      return (
+        <span key={i} className="relative inline-block h-4 w-4 align-middle">
+          <svg viewBox="0 0 24 24" className="h-4 w-4 text-gray-300" aria-hidden="true">
+            <path d={starPath} fill="currentColor" />
+          </svg>
+          <span className="absolute inset-0 overflow-hidden" style={{ width: `${percentage}%` }}>
+            <svg viewBox="0 0 24 24" className="h-4 w-4 text-yellow-400" aria-hidden="true">
+              <path d={starPath} fill="currentColor" />
+            </svg>
+          </span>
+        </span>
+      )
+    })
   }
 
   return (

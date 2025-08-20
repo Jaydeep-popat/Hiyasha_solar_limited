@@ -1,4 +1,5 @@
 import { Award, Users, Zap, Shield, Globe, TrendingUp, CheckCircle, Star } from "lucide-react"
+import Link from "next/link"
 
 
 
@@ -19,7 +20,7 @@ const milestones = [
   },
   {
     year: "Client Growth",
-    title: "15+ Valuable Clients",
+    title: "30+ Valuable Clients",
     description: "Successfully served diverse clientele including healthcare, manufacturing, education, and industrial sectors.",
     icon: "🤝",
     achievements: ["Healthcare sector", "Manufacturing clients", "Educational institutions"]
@@ -42,7 +43,7 @@ const milestones = [
 
 const stats = [
   { number: "20 MW", label: "Annual Installation Target", icon: Zap },
-  { number: "15+", label: "Valuable Clients", icon: Users },
+  { number: "30+", label: "Valuable Clients", icon: Users },
   { number: "100%", label: "EPC Excellence", icon: Star },
   { number: "24/7", label: "Customer Support", icon: Award },
 ]
@@ -78,7 +79,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-green-100/20 to-blue-100/20"></div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold tracking-tight text-gray-900">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-gray-900">
               About <span className="gradient-text">Hiyasha Solar Systems</span>
             </h1>
             <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600">
@@ -308,12 +309,12 @@ export default function AboutPage() {
               and create a cleaner tomorrow.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/contact" className="btn-primary text-base sm:text-lg">
+              <Link href="/contact" className="btn-primary text-base sm:text-lg">
                 Get Free Consultation
-              </a>
-              <a href="/services" className="btn-secondary text-base sm:text-lg">
+              </Link>
+              <Link href="/services" className="btn-secondary text-base sm:text-lg">
                 Explore Services
-              </a>
+              </Link>
             </div>
           </div>
         </div>

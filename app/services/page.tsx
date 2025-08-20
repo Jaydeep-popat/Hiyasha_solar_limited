@@ -163,7 +163,7 @@ const testimonials = [
     name: "Pravin Vadhaiya",
     role: "Homeowner",
     content: "SolarTech Solutions turned our rooftop into a powerhouse of clean energy. Our electricity bills have gone down by almost 80%, and we feel proud to contribute to a greener India.",
-    rating: 5,
+    rating: 4.3,
     image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1755572430/WhatsApp_Image_2025-08-19_at_08.19.28_97cc58fd_fkwqk5.jpg",
     savings: "₹1,95,000/year"
   },
@@ -171,7 +171,7 @@ const testimonials = [
     name: "BhadreshBhai Mathasuliya",
     role: "Small Business Owner",
     content: "Installing their commercial solar system was the best business decision I’ve made. The savings are huge, and their after-sales service is truly exceptional. They guided us through every step.",
-    rating: 5,
+    rating: 4.7,
     image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1755572429/WhatsApp_Image_2025-08-19_at_08.29.11_bf79255c_otjoq0.jpg",
     savings: "₹12,50,000/year"
   },
@@ -179,7 +179,7 @@ const testimonials = [
     name: "GauriBen Kanani",
     role: "Environmental Volunteer",
     content: "Finally found a solar company that’s as passionate about sustainability as I am. Their team ensured everything was done with care for both the environment and our needs.",
-    rating: 5,
+    rating: 4.55,
     image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1755572731/WhatsApp_Image_2025-08-19_at_08.35.02_30abdf97_s1an1v.jpg",
     savings: "₹1,45,000/year"
   },
@@ -195,12 +195,18 @@ export default function ServicesPage() {
   const [hoveredBenefit, setHoveredBenefit] = useState<number | null>(null)
 
   const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <Star
-        key={i}
-        className={`h-4 w-4 ${i < rating ? "text-yellow-400 fill-current" : "text-gray-300"}`}
-      />
-    ))
+    return Array.from({ length: 5 }, (_, i) => {
+      const fillLevel = Math.max(0, Math.min(1, rating - i))
+      const percentage = Math.round(fillLevel * 100)
+      return (
+        <span key={i} className="relative inline-block h-4 w-4 align-middle">
+          <Star className="h-4 w-4 text-gray-300" />
+          <span className="absolute inset-0 overflow-hidden" style={{ width: `${percentage}%` }}>
+            <Star className="h-4 w-4 text-yellow-400 fill-current" />
+          </span>
+        </span>
+      )
+    })
   }
 
   return (
@@ -210,7 +216,7 @@ export default function ServicesPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-green-100/20 to-blue-100/20"></div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold tracking-tight text-gray-900">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-gray-900">
               Our <span className="gradient-text">Services</span>
             </h1>
             <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600">
@@ -239,7 +245,7 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center group">
+              <div key={index} className="text-center group flex flex-col items-center justify-center">
                 <div className="flex justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
                   <stat.icon className="h-8 w-8 text-white/80" />
                 </div>
@@ -279,16 +285,16 @@ export default function ServicesPage() {
                     <p className="text-base sm:text-lg leading-7 sm:leading-8 text-gray-600 mb-8">{service.detailedDescription}</p>
                     
                     {/* Service Stats (price-related details removed) */}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
-                      <div className="bg-blue-50 rounded-lg p-4 text-center">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8 items-stretch">
+                      <div className="bg-blue-50 rounded-lg p-4 text-center h-full flex flex-col items-center justify-center">
                         <div className="text-lg font-bold text-blue-600">{service.stats.installationTime}</div>
                         <div className="text-xs text-gray-600">Installation</div>
                       </div>
-                      <div className="bg-purple-50 rounded-lg p-4 text-center">
+                      <div className="bg-purple-50 rounded-lg p-4 text-center h-full flex flex-col items-center justify-center">
                         <div className="text-lg font-bold text-purple-600">{service.stats.warranty}</div>
                         <div className="text-xs text-gray-600">Warranty</div>
                       </div>
-                      <div className="bg-orange-50 rounded-lg p-4 text-center">
+                      <div className="bg-orange-50 rounded-lg p-4 text-center h-full flex flex-col items-center justify-center">
                         <div className="text-lg font-bold text-orange-600">{service.stats.efficiency}</div>
                         <div className="text-xs text-gray-600">Efficiency</div>
                       </div>

@@ -72,7 +72,7 @@ export default function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className={`text-sm xl:text-lg font-semibold leading-6 transition-all duration-300 hover:text-green-600 hover:scale-105 relative group ${
+              className={`text-base lg:text-lg xl:text-xl font-semibold leading-6 transition-all duration-300 hover:text-green-600 hover:scale-105 relative group ${
                 pathname === item.href ? "text-green-600" : "text-gray-700"
               }`}
             >
@@ -137,7 +137,7 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`block rounded-lg px-3 py-3 text-base font-semibold leading-7 hover:bg-gray-50 transition-all duration-300 ${
+                    className={`block rounded-lg px-3 py-3 text-lg font-semibold leading-7 hover:bg-gray-50 transition-all duration-300 ${
                       pathname === item.href
                         ? "text-green-600 bg-green-50"
                         : "text-gray-900"
