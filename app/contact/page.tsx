@@ -86,12 +86,26 @@ export default function ContactPage() {
                       Phone:
                     </strong>
                     <br />
-                    <Link
-                      href="tel:+919727097971"
-                      className="text-green-600 hover:text-green-500"
-                    >
-                      +91 97270 97971
-                    </Link>
+                    <div className="space-y-1">
+                      <div>
+                        <Link href="tel:+919727097250" className="text-green-600 hover:text-green-500">
+                          +91 97270 97250
+                        </Link>
+                        <span> - Hemalbhai Pethapara</span>
+                      </div>
+                      <div>
+                        <Link href="tel:+918469452145" className="text-green-600 hover:text-green-500">
+                          +91 84694 52145
+                        </Link>
+                        <span> - Girishbhai Pethapara</span>
+                      </div>
+                      <div>
+                        <Link href="tel:+919727097971" className="text-green-600 hover:text-green-500">
+                          +91 97270 97971
+                        </Link>
+                        <span> - Hiyasha Solar Systems</span>
+                      </div>
+                    </div>
                   </dd>
                 </div>
                 <div className="flex gap-x-4">

@@ -1,5 +1,6 @@
 import { Award, Users, Zap, Shield, Globe, TrendingUp, CheckCircle, Star } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 
 
@@ -221,30 +222,40 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8">
             {[
-              "Vihana Health Care LLP",
-              "Shayna Polymers LLP", 
-              "Pethapara Surgical Hospital",
-              "Soriso Granito",
-              "Shivana Polymers LLP",
-              "Himaalay Thermoplast",
-              "P.G. Patel College",
-              "Tiptop ACP Elevation",
-              "Honda Vinayak Honda",
-              "Angel Floor Tiles",
-              "Terra Plastwood LLP",
-              "LuShine Industries",
-              "Karam",
-              "Saanvi Gel Industries LLP",
-              "Himsheela Plast"
-            ].map((client, index) => (
-              <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center hover:bg-white/20 transition-all duration-300 border border-white/20">
-                <div className="text-2xl sm:text-3xl mb-3">🏢</div>
-                <h3 className="text-sm sm:text-base font-semibold text-white">{client}</h3>
+              "/assets/Picture1.jpg",
+              "/assets/Picture1.png",
+              "/assets/Picture2.jpg",
+              "/assets/Picture2.png",
+              "/assets/Picture3.jpg",
+              "/assets/Picture4.jpg",
+              "/assets/Picture5.jpg",
+              "/assets/Picture6.png",
+              "/assets/Picture7.jpg",
+              "/assets/Picture8.jpg",
+              "/assets/Picture10.jpg",
+              "/assets/Picture11.png",
+              "/assets/Picture12.png",
+              "/assets/Picture13.png",
+              "/assets/Picture14.png",
+              "/assets/Picture15.png",
+              "/assets/Picture16.png",
+              "/assets/Picture17.png",
+              "/assets/Picture18.png",
+              "/assets/Picture19.png",
+              "/assets/Picture20.png",
+              "/assets/Picture21.png",
+              "/assets/Picture22.png",
+              "/assets/Picture23.png",
+              "/assets/Picture24.png",
+              "/assets/Picture25.png",
+              "/assets/Picture26.png",
+            ].map((src, index) => (
+              <div key={index} className="bg-white rounded-xl p-4 sm:p-6 hover:shadow-lg transition-all duration-300 border border-white/20">
+                <div className="relative h-20 sm:h-24 md:h-28 lg:h-24 w-full">
+                  <Image src={src} alt="Client logo" fill className="object-contain" sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw" />
+                </div>
               </div>
             ))}
-          </div>
-          <div className="mt-12 text-center">
-            <p className="text-lg text-blue-300 font-semibold">FOSTER A GREENER PLANET</p>
           </div>
         </div>
       </section>
