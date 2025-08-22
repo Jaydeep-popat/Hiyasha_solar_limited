@@ -324,6 +324,39 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Company Advertising Video Section */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 via-white to-green-50">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">Discover Our Solar Solutions</h2>
+            <p className="mt-4 text-lg leading-8 text-gray-600">
+              Watch how we transform homes and businesses with cutting-edge solar technology and exceptional service.
+            </p>
+          </div>
+          <div className="mx-auto max-w-4xl">
+            <div className="relative">
+              <video 
+                width="100%" 
+                controls 
+                // poster="/Picture1.jpg" 
+                className="rounded-2xl shadow-lg w-full max-h-[80vh] object-contain"
+                preload="metadata"
+              >
+                <source src="https://res.cloudinary.com/dpe33dh2p/video/upload/v1755878436/adverticement_vt19jv.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              {/* Decorative overlay */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none"></div>
+            </div>
+            <div className="mt-6 text-center">
+              <p className="text-sm text-gray-500">
+                Experience the future of clean energy with Hiyasha Solar Systems
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Benefits Section */}
       <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-green-50 via-blue-50 to-orange-50">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
