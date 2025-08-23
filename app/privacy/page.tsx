@@ -217,7 +217,7 @@ export default function PrivacyPolicyPage() {
                     +91 97270 97971
                   </Link>
                 </p>
-                <p className="text-gray-600">Address: Morabi, Gujarat, India</p>
+                <p className="text-gray-600">Address: Morbi, Gujarat, India</p>
               </div>
             </div>
 

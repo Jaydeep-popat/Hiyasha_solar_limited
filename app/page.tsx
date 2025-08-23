@@ -104,7 +104,7 @@ const featuredProducts = [
 
 const testimonials = [  
   {
-    name: "Pravin Vadhaiya",
+    name: "Pravin Vadhadiya",
     role: "Homeowner",
     content: "SolarTech Solutions turned our rooftop into a powerhouse of clean energy. Our electricity bills have gone down by almost 80%, and we feel proud to contribute to a greener India.",
     rating: 4.3,
@@ -275,8 +275,8 @@ export default function HomePage() {
               who have made the switch to sustainable power and are saving money while protecting the environment.
             </p>
             <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6">
-              <Link href="/contact" className="btn-primary text-lg shadow-xl hover:scale-105 transition-transform duration-300">
-                Contect us
+              <Link href="/about" className="btn-primary text-lg shadow-xl hover:scale-105 transition-transform duration-300">
+                about us
               </Link>
               <Link
                 href="/services"
@@ -697,5 +697,6 @@ export default function HomePage() {
         </div>
       </section>
     </div>
+    
   )
 }

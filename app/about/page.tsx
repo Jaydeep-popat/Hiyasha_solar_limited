@@ -340,7 +340,7 @@ export default function AboutPage() {
 
 
       {/* CTA Section */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-r from-green-600 to-blue-600">
+      {/* <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-r from-green-600 to-blue-600">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white">
@@ -367,7 +367,7 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

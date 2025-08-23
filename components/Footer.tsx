@@ -91,7 +91,7 @@ export default function Footer() {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-4 w-4 text-green-400 flex-shrink-0 mt-0.5" />
                 <div className="text-sm text-gray-300">
-                  <p>Morabi, Gujarat, India</p>
+                  <p>Morbi, Gujarat, India</p>
                   <p>India</p>
                 </div>
               </div>

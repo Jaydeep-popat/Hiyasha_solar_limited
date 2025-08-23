@@ -9,6 +9,7 @@ import { Menu, X } from "lucide-react";
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
+  { name: "Why Hiyasha?", href: "/why-hiyasha" },
   { name: "Services", href: "/services" },
   { name: "Contact Us", href: "/contact" },
 ];
@@ -20,7 +21,7 @@ export default function Header() {
   return (
     <header className="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-green-100">
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-4 sm:p-6 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between p-3 sm:p-4 lg:px-6"
         aria-label="Global"
       >
         {/* Logo */}
@@ -67,12 +68,12 @@ export default function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex lg:gap-x-8 xl:gap-x-12">
+        <div className="hidden lg:flex lg:gap-x-6 xl:gap-x-8">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className={`text-base lg:text-lg xl:text-xl font-semibold leading-6 transition-all duration-300 hover:text-green-600 hover:scale-105 relative group ${
+              className={`text-sm lg:text-base xl:text-lg font-semibold leading-6 transition-all duration-300 hover:text-green-600 hover:scale-105 relative group ${
                 pathname === item.href ? "text-green-600" : "text-gray-700"
               }`}
             >
@@ -83,12 +84,12 @@ export default function Header() {
         </div>
 
         {/* Desktop Catalog Buttons */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-3">
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-2">
           <Link
             href="https://drive.google.com/file/d/1R0aoJpEk-3HjZu2nVoKjPTnvdPjOzeRh/view"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary text-sm xl:text-base px-6 py-2.5"
+            className="btn-primary text-xs lg:text-sm xl:text-base px-4 lg:px-5 py-2 lg:py-2.5"
           >
             View Catalog
           </Link>
@@ -96,7 +97,7 @@ export default function Header() {
             href="https://drive.google.com/uc?export=download&id=1R0aoJpEk-3HjZu2nVoKjPTnvdPjOzeRh"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary text-sm xl:text-base px-6 py-2.5"
+            className="btn-primary text-xs lg:text-sm xl:text-base px-4 lg:px-5 py-2 lg:py-2.5"
           >
             Download PDF
           </Link>

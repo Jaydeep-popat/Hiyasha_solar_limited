@@ -157,10 +157,9 @@ const benefits = [
   },
 ]
 
-
 const testimonials = [
   {
-    name: "Pravin Vadhaiya",
+    name: "Pravin Vadhadiya",
     role: "Homeowner",
     content: "SolarTech Solutions turned our rooftop into a powerhouse of clean energy. Our electricity bills have gone down by almost 80%, and we feel proud to contribute to a greener India.",
     rating: 4.3,
