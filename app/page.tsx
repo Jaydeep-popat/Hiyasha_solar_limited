@@ -77,7 +77,7 @@ const heroImages = [
 
 const featuredProducts = [
   {
-    name: "Premium Solar Panel 400W",
+    name: "Latest Solar Panel 550Wp to 630wp",
     description: "High-efficiency monocrystalline solar panels with 25-year warranty.",
     image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1754466660/WhatsApp_Image_2025-08-06_at_07.36.48_21f465ce_cwvawd.jpg",
     price: "₹24,899",
@@ -85,7 +85,7 @@ const featuredProducts = [
     features: ["21.5% efficiency", "25-year warranty", "Weather resistant", "Easy installation"]
   },
   {
-    name: "Smart Inverter Pro",
+    name: "Pro Inverters",
     description: "Advanced inverter technology with real-time monitoring capabilities.",
     image: "https://res.cloudinary.com/dpe33dh2p/image/upload/v1754968702/099fea32-c3b0-424d-822a-fc3cc0bb5a8f_nt61ll.jpg",
     price: "₹1,07,999",
@@ -131,8 +131,8 @@ const testimonials = [
 
 
 const stats = [
-  { number: "1,000+", label: "Happy Customers", icon: Users },
-  { number: "50MW+", label: "Solar Power Installed", icon: Zap },
+  { number: "400+", label: "Happy Customers", icon: Users },
+  { number: "20MW+", label: "Solar Power Installed", icon: Zap },
   { number: "98%", label: "Customer Satisfaction", icon: Star },
   { number: "25+", label: "Years Experience", icon: Award },
 ]
@@ -276,7 +276,7 @@ export default function HomePage() {
             </p>
             <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6">
               <Link href="/about" className="btn-primary text-lg shadow-xl hover:scale-105 transition-transform duration-300">
-                about us
+                About us
               </Link>
               <Link
                 href="/services"
@@ -324,35 +324,60 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Company Advertising Video Section */}
+      {/* Valuable Clients Section (moved from About Us) */}
       <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 via-white to-green-50">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl text-center mb-8 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">Discover Our Solar Solutions</h2>
+          <div className="mx-auto max-w-2xl text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">Our Valuable Clients</h2>
             <p className="mt-4 text-lg leading-8 text-gray-600">
-              Watch how we transform homes and businesses with cutting-edge solar technology and exceptional service.
+              Trusted by leading companies across diverse sectors in India.
             </p>
           </div>
-          <div className="mx-auto max-w-4xl">
-            <div className="relative">
-              <video 
-                width="100%" 
-                controls 
-                // poster="/Picture1.jpg" 
-                className="rounded-2xl shadow-lg w-full max-h-[80vh] object-contain"
-                preload="metadata"
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8">
+            {[
+              "/Picture1.jpg",
+              "/Picture2.jpg",
+              "/Picture3.jpg",
+              "/Picture4.jpg",
+              "/Picture5.jpg",
+              "/Picture6.png",
+              "/Picture7.png",
+              "/Picture8.jpg",
+              "/Picture9.jpg",
+              "/Picture10.jpg",
+              "/Picture11.png",
+              "/Picture12.png",
+              "/Picture13.png",
+              "/Picture14.png",
+              "/Picture15.png",
+              "/Picture16.png",
+              "/Picture17.png",
+              "/Picture18.png",
+              "/Picture19.png",
+              "/Picture20.png",
+              "/Picture21.png",
+              "/Picture22.png",
+              "/Picture23.png",
+              "/Picture24.png",
+              "/Picture25.png",
+              "/Picture26.png",
+              "/Picture27.png",
+            ].map((src, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl p-4 sm:p-6 hover:shadow-lg transition-all duration-300 border border-white/20"
               >
-                <source src="https://res.cloudinary.com/dpe33dh2p/video/upload/v1755878436/adverticement_vt19jv.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              {/* Decorative overlay */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none"></div>
-            </div>
-            <div className="mt-6 text-center">
-              <p className="text-sm text-gray-500">
-                Experience the future of clean energy with Hiyasha Solar Systems
-              </p>
-            </div>
+                <div className="relative h-20 sm:h-24 md:h-28 lg:h-24 w-full">
+                  <Image
+                    src={src}
+                    alt="Client logo"
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

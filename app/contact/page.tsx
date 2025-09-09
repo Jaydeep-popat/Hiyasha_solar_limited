@@ -143,7 +143,7 @@ export default function ContactPage() {
                       Business Hours:
                     </strong>
                     <br />
-                    Mon - Sat: 8:00 AM - 6:30 PM
+                    Mon - Sat: 9:00 AM - 7:00 PM
                     <br />
                     Sunday: Closed
                   </dd>

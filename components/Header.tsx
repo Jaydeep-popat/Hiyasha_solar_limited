@@ -8,8 +8,9 @@ import { Menu, X } from "lucide-react";
 
 const navigation = [
   { name: "Home", href: "/" },
+  { name: "Why Hiyasha Solar?", href: "/why-hiyasha" },
+  { name: "Recidential", href: "/recidencial"},
   { name: "About Us", href: "/about" },
-  { name: "Why Hiyasha?", href: "/why-hiyasha" },
   { name: "Services", href: "/services" },
   { name: "Contact Us", href: "/contact" },
 ];
@@ -19,13 +20,13 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-green-100">
-      <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-3 sm:p-4 lg:px-6"
-        aria-label="Global"
-      >
+      <header className="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-green-100">
+        <nav
+          className="mx-auto flex max-w-7xl items-center justify-between p-2 sm:p-3 lg:px-4"
+          aria-label="Global"
+        >
         {/* Logo */}
-        <div className="flex lg:flex-1 items-center">
+  <div className="flex lg:flex-1 items-center">
           <Link href="/" className="items-center">
             <div className="relative h-12 w-[200px] sm:h-16 sm:w-[220px]">
               <Image
@@ -68,7 +69,7 @@ export default function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex lg:gap-x-6 xl:gap-x-8">
+  <div className="hidden lg:flex lg:gap-x-4 xl:gap-x-6">
           {navigation.map((item) => (
             <Link
               key={item.name}
@@ -84,12 +85,12 @@ export default function Header() {
         </div>
 
         {/* Desktop Catalog Buttons */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-2">
+  <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-1">
           <Link
             href="https://drive.google.com/file/d/1R0aoJpEk-3HjZu2nVoKjPTnvdPjOzeRh/view"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary text-xs lg:text-sm xl:text-base px-4 lg:px-5 py-2 lg:py-2.5"
+            className="btn-primary text-xs lg:text-sm xl:text-base px-3 lg:px-4 py-1.5 lg:py-2"
           >
             View Catalog
           </Link>
@@ -97,7 +98,7 @@ export default function Header() {
             href="https://drive.google.com/uc?export=download&id=1R0aoJpEk-3HjZu2nVoKjPTnvdPjOzeRh"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary text-xs lg:text-sm xl:text-base px-4 lg:px-5 py-2 lg:py-2.5"
+            className="btn-primary text-xs lg:text-sm xl:text-base px-3 lg:px-4 py-1.5 lg:py-2"
           >
             Download PDF
           </Link>
@@ -111,7 +112,7 @@ export default function Header() {
           <div className="fixed inset-0 z-50 flex items-start justify-end">
             <div className="relative w-full max-w-sm bg-white shadow-xl h-screen overflow-y-auto">
               {/* Drawer Header */}
-              <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200">
+              <div className="flex items-center justify-between p-3 sm:p-4 border-b border-gray-200">
                 <Link href="/" className="-m-1.5 p-1.5 flex items-center">
                   <div className="relative h-10 w-[160px] sm:h-12 sm:w-[180px]">
                     <Image
@@ -133,7 +134,7 @@ export default function Header() {
               </div>
 
               {/* Mobile Links */}
-              <div className="px-4 sm:px-6 py-4 space-y-1">
+              <div className="px-3 sm:px-4 py-3 space-y-1">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}

@@ -109,7 +109,7 @@ export default function AboutPage() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-gray-900">
-              About <span className="gradient-text">Hiyasha Solar Systems</span>
+              Residential  <span className="gradient-text"> Solar Systems</span>
             </h1>
             <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600">
               Leading India's renewable energy sector with innovative solar
