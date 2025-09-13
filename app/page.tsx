@@ -171,167 +171,113 @@ const benefits = [
 // Client logos array and constants
 const clientLogos = [
   {
-    src: "./Picture1.jpg",
-    alt: "Client Logo 1",
-    width: 200,
-    height: 100
+    src: "/Picture1.jpg",
+    alt: "Client Logo 1"
   },
   {
-    src: "./Picture2.jpg",
-    alt: "Client Logo 2",
-    width: 200,
-    height: 100
+    src: "/Picture2.jpg",
+    alt: "Client Logo 2"
   },
   {
-    src: "./Picture3.jpg",
-    alt: "Client Logo 3",
-    width: 200,
-    height: 100
+    src: "/Picture3.jpg",
+    alt: "Client Logo 3"
   },
   {
-    src: "./Picture4.jpg",
-    alt: "Client Logo 4",
-    width: 200,
-    height: 100
+    src: "/Picture4.jpg",
+    alt: "Client Logo 4"
   },
   {
-    src: "./Picture5.jpg",
-    alt: "Client Logo 5",
-    width: 200,
-    height: 100
+    src: "/Picture5.jpg",
+    alt: "Client Logo 5"
   },
   {
-    src: "./Picture6.png",
-    alt: "Client Logo 6",
-    width: 200,
-    height: 100
+    src: "/Picture6.png",
+    alt: "Client Logo 6"
   },
   {
-    src: "./Picture7.png",
-    alt: "Client Logo 7",
-    width: 200,
-    height: 100
+    src: "/Picture7.png",
+    alt: "Client Logo 7"
   },
   {
-    src: "./Picture8.jpg",
-    alt: "Client Logo 8",
-    width: 200,
-    height: 100
+    src: "/Picture8.jpg",
+    alt: "Client Logo 8"
   },
-  // {
-  //   src: "./Picture9.jpg",
-  //   alt: "Client Logo 9",
-  //   width: 200,
-  //   height: 100
-  // },
-  // {
-  //   src: "./Picture10.jpg",
-  //   alt: "Client Logo 10",
-  //   width: 200,
-  //   height: 100
-  // },
-  // {
-  //   src: "./Picture11.png",
-  //   alt: "Client Logo 11",
-  //   width: 200,
-  //   height: 100
-  // },
-  // {
-  //   src: "./Picture12.png",
-  //   alt: "Client Logo 12",
-  //   width: 200,
-  //   height: 100
-  // },
-  // {
-  //   src: "./Picture13.png",
-  //   alt: "Client Logo 13",
-  //   width: 200,
-  //   height: 100
-  // },
-  // {
-  //   src: "./Picture14.png",
-  //   alt: "Client Logo 14",
-  //   width: 200,
-  //   height: 100
-  // },
-  // {
-  //   src: "./Picture15.png",
-  //   alt: "Client Logo 15",
-  //   width: 200,
-  //   height: 100
-  // },
-  // {
-  //   src: "./Picture16.png",
-  //   alt: "Client Logo 16",
-  //   width: 200, 
-  //   height: 100
-  // },
-  // {
-  //   src: "./Picture17.png",
-  //   alt: "Client Logo 17",
-  //   width: 200,
-  //   height: 100
-  // },
-  // {
-  //   src: "./Picture18.png",
-  //   alt: "Client Logo 18",
-  //   width: 200,
-  //   height: 100
-  // },
-  // {
-  //   src: "./Picture19.png",
-  //   alt: "Client Logo 19",
-  //   width: 200,
-  //   height: 100
-  // },
-  // {
-  //   src: "./Picture20.png",
-  //   alt: "Client Logo 20",
-  //   width: 200,
-  //   height: 100
-  // },
-  // {
-  //   src: "./Picture21.png",
-  //   alt: "Client Logo 21",
-  //   width: 200,
-  //   height: 100
-  // },
-  // {
-  //   src: "./Picture22.png",
-  //   alt: "Client Logo 22",
-  //   width: 200,
-  //   height: 100
-  // },
-  // {
-  //   src: "./Picture23.png",
-  //   alt: "Client Logo 23",
-  //   width: 200,
-  //   height: 100
-  // },
-  // {
-  //   src: "./Picture24.png",
-  //   alt: "Client Logo 24",
-  //   width: 200,
-  //   height: 100
-  // },
-  // {
-  //   src: "./Picture25.png",
-  //   alt: "Client Logo 25",
-  //   width: 200,
-  //   height: 100
-  // },
-  // {
-  //   src: "./Picture26.png",
-  //   alt: "Client Logo 26",
-  //   width: 200,
-  //   height: 100
-  // },
-  // {
-  //   src: "./Picture27.png",
-  //   alt: "Client Logo 27",
-  //   width: 200,
-  //   height: 100
-  // }
+  {
+    src: "/Picture9.jpg",
+    alt: "Client Logo 9"
+  },
+  {
+    src: "/Picture10.jpg",
+    alt: "Client Logo 10"
+  },
+  {
+    src: "/Picture11.png",
+    alt: "Client Logo 11"
+  },
+  {
+    src: "/Picture12.png",
+    alt: "Client Logo 12"
+  },
+  {
+    src: "/Picture13.png",
+    alt: "Client Logo 13"
+  },
+  {
+    src: "/Picture14.png",
+    alt: "Client Logo 14"
+  },
+  {
+    src: "/Picture15.png",
+    alt: "Client Logo 15"
+  },
+  {
+    src: "/Picture16.png",
+    alt: "Client Logo 16"
+  },
+  {
+    src: "/Picture17.png",
+    alt: "Client Logo 17"
+  },
+  {
+    src: "/Picture18.png",
+    alt: "Client Logo 18"
+  },
+  {
+    src: "/Picture19.png",
+    alt: "Client Logo 19"
+  },
+  {
+    src: "/Picture20.png",
+    alt: "Client Logo 20"
+  },
+  {
+    src: "/Picture21.png",
+    alt: "Client Logo 21"
+  },
+  {
+    src: "/Picture22.png",
+    alt: "Client Logo 22"
+  },
+  {
+    src: "/Picture23.png",
+    alt: "Client Logo 23"
+  },
+  {
+    src: "/Picture24.png",
+    alt: "Client Logo 24"
+  },
+  {
+    src: "/Picture25.png",
+    alt: "Client Logo 25"
+  },
+  {
+    src: "/Picture26.png",
+    alt: "Client Logo 26"
+  },
+  {
+    src: "/Picture27.png",
+    alt: "Client Logo 27"
+  }
 ]
 
 const imagesPerPage = 4
@@ -375,13 +321,19 @@ export default function HomePage() {
   // Auto-scroll client logos every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentClientPage((prev) => 
-        prev === Math.ceil(clientLogos.length / imagesPerPage) - 1 ? 0 : prev + 1
-      )
-    }, 5000)
+      const maxPage = Math.ceil(clientLogos.length / imagesPerPage) - 1;
+      setCurrentClientPage(prev => prev < maxPage ? prev + 1 : 0);
+    }, 5000);
 
-    return () => clearInterval(interval)
+    return () => clearInterval(interval);
   }, [])
+
+  // Log client logo information
+  useEffect(() => {
+    console.log("Total client logo images:", clientLogos.length);
+    console.log("Number of pages:", Math.ceil(clientLogos.length / imagesPerPage));
+    console.log("Current images:", clientLogos.slice(0, imagesPerPage).map(logo => logo.src));
+  }, []);
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
@@ -505,9 +457,9 @@ export default function HomePage() {
       </section>
 
       {/* Valuable Clients Section with Carousel */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 via-white to-green-50">
+      <section className="py-16 sm:py-20 lg:py-28 bg-gradient-to-br from-gray-50 via-white to-green-50">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-8 sm:mb-12">
+          <div className="mx-auto max-w-2xl text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">Our Valuable Clients</h2>
             <p className="mt-4 text-lg leading-8 text-gray-600">
               Trusted by leading companies across diverse sectors in India.
@@ -515,65 +467,63 @@ export default function HomePage() {
           </div>
 
           {/* Client Logo Carousel */}
-          <div className="relative">
+          <div className="relative max-w-6xl mx-auto">
             {/* Navigation Buttons */}
             <button
               onClick={() => setCurrentClientPage(prev => 
                 prev === 0 ? Math.ceil(clientLogos.length / imagesPerPage) - 1 : prev - 1
               )}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 sm:-translate-x-8 z-10 bg-white rounded-full p-3 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-green-500"
+              aria-label="Previous clients"
             >
-              <ChevronLeft className="h-6 w-6 text-gray-600" />
+              <ChevronLeft className="h-6 w-6 sm:h-7 sm:w-7 text-gray-600" />
             </button>
 
             <button
               onClick={() => setCurrentClientPage(prev => 
                 prev === Math.ceil(clientLogos.length / imagesPerPage) - 1 ? 0 : prev + 1
               )}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 sm:translate-x-8 z-10 bg-white rounded-full p-3 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-green-500"
+              aria-label="Next clients"
             >
-              <ChevronRight className="h-6 w-6 text-gray-600" />
+              <ChevronRight className="h-6 w-6 sm:h-7 sm:w-7 text-gray-600" />
             </button>
 
             {/* Client Logos Grid */}
-            <div className="overflow-hidden">
-              <div 
-                className="grid grid-cols-2 md:grid-cols-4 gap-6 transition-transform duration-500 ease-in-out"
-                style={{ 
-                  transform: `translateX(-${currentClientPage * 100}%)`,
-                  display: "grid",
-                  gridTemplateColumns: `repeat(${Math.ceil(clientLogos.length / imagesPerPage) * 4}, minmax(0, 1fr))`,
-                }}
-              >
-                {clientLogos.map((logo, index) => (
-                  <div
-                    key={index}
-                    className="bg-white rounded-xl p-4 sm:p-6 hover:shadow-lg transition-all duration-300 border border-white/20"
-                  >
-                    <div className="relative h-20 sm:h-24 md:h-28 lg:h-24 w-full">
-                      <Image
-                        src={logo.src}
-                        alt={logo.alt}
-                        width={logo.width}
-                        height={logo.height}
-                        className="w-full h-full object-contain"
-                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 20vw"
-                      />
+            <div className="rounded-xl bg-white/50 p-2 sm:p-3">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+                {clientLogos
+                  .slice(currentClientPage * imagesPerPage, (currentClientPage + 1) * imagesPerPage)
+                  .map((logo, index) => (
+                    <div
+                      key={`logo-${currentClientPage}-${index}`}
+                      className="bg-white rounded-xl p-5 sm:p-7 lg:p-8 hover:shadow-lg transition-all duration-300 border border-gray-100 flex items-center justify-center"
+                      style={{ height: '180px', minHeight: '180px' }}
+                    >
+                      <div className="relative w-full h-full">
+                        <Image
+                          src={logo.src}
+                          alt={logo.alt}
+                          fill
+                          className="object-contain p-2"
+                          sizes="(max-width: 640px) 45vw, (max-width: 1024px) 22vw, 18vw"
+                        />
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             </div>
 
             {/* Pagination Dots */}
-            <div className="flex justify-center mt-6 gap-2">
+            <div className="flex justify-center mt-10 gap-3">
               {Array.from({ length: Math.ceil(clientLogos.length / imagesPerPage) }).map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentClientPage(index)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    currentClientPage === index ? "bg-green-600 w-4" : "bg-gray-300 hover:bg-gray-400"
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    currentClientPage === index ? "bg-green-600 w-5" : "bg-gray-300 hover:bg-gray-400"
                   }`}
+                  aria-label={`Go to client page ${index + 1}`}
                 />
               ))}
             </div>

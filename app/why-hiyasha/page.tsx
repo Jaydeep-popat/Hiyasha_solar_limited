@@ -21,6 +21,66 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef, useCallback } from "react";
+import dynamic from 'next/dynamic';
+
+// Dynamically import the ClientOnlyVideo component with no SSR
+const ClientOnlyVideo = dynamic(() => Promise.resolve(({ video, index }: { video: any, index: number }) => {
+  const [isMounted, setIsMounted] = useState(false);
+  
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return (
+      <div className={`bg-gray-100 ${index === 0 ? 'aspect-square' : 'aspect-video'} flex items-center justify-center`}>
+        <p className="text-gray-500">Loading video...</p>
+      </div>
+    );
+  }
+
+  if (index === 0) {
+    return (
+      <div className="w-full h-full flex items-center justify-center">
+        <video 
+          className="object-contain mx-auto cursor-pointer"
+          style={{ transform: 'rotate(90deg)', maxHeight: '100%', maxWidth: '100%' }}
+          preload="auto"
+          playsInline
+          onClick={(e) => {
+            const video = e.currentTarget;
+            if (video.paused) video.play();
+            else video.pause();
+          }}
+          title={video.title}
+        >
+          <source src={video.url} type="video/mp4" />
+          <source src={video.url.replace('.mp4', '.webm')} type="video/webm" />
+          <p>Your browser doesn't support HTML5 video. <a href={video.url} target="_blank" rel="noopener noreferrer">View the video here</a>.</p>
+        </video>
+      </div>
+    );
+  }
+  
+  return (
+    <div className="w-full">
+      <video 
+        className="w-full h-auto max-h-[60vh] object-contain mx-auto cursor-pointer"
+        preload="auto"
+        playsInline
+        onClick={(e) => {
+          const video = e.currentTarget;
+          if (video.paused) video.play();
+          else video.pause();
+        }}
+        title={video.title}
+      >
+        <source src={video.url} type="video/mp4" />
+        <p>Your browser doesn't support HTML5 video. <a href={video.url} target="_blank" rel="noopener noreferrer">View the video here</a>.</p>
+      </video>
+    </div>
+  );
+}), { ssr: false });
 
 // Custom hook for swipe functionality
 const useSwipe = (onSwipeLeft: () => void, onSwipeRight: () => void) => {
@@ -72,6 +132,19 @@ const videoSlides = [
   {
     url: "https://res.cloudinary.com/dpe33dh2p/video/upload/v1757733642/WhatsApp_Video_2025-09-09_at_16.27.32_4e1b087f_gosvae.mp4",
     alt: "Hiyasha Solar Customer Testimonial"
+  }
+];
+
+const marketingVideos = [
+  {
+    url: "https://res.cloudinary.com/dpe33dh2p/video/upload/q_auto/v1757743210/WhatsApp_Video_2025-09-09_at_16.27.31_f98a60e6_b9qgzl.mp4",
+    title: "Hiyasha Solar Solutions",
+    description: "Discover how Hiyasha is transforming solar energy adoption in India with innovative solutions for residential and commercial customers."
+  },
+  {
+    url: "https://res.cloudinary.com/dpe33dh2p/video/upload/v1755878436/adverticement_vt19jv.mp4",
+    title: "Solar Energy for the Future",
+    description: "Our commitment to clean, renewable energy solutions for homes and businesses that reduce carbon footprint and save money."
   }
 ];
 
@@ -369,6 +442,43 @@ export default function WhyHiyasha() {
                 ))}
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Marketing Videos Section */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-8">
+            <div className="inline-block px-3 py-1 rounded-full bg-green-100 text-green-800 text-sm font-medium mb-4">
+              Marketing Videos
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900">
+              Our Solar Solutions in Action
+            </h2>
+            <p className="mt-4 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600">
+              Watch our marketing videos to see how Hiyasha Solar is transforming energy solutions
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+            {marketingVideos.map((video, index) => (
+              <div key={index} className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 bg-white border border-gray-100">
+                <div className={`relative group ${index === 0 ? 'aspect-square' : 'w-full'}`}>
+                  <ClientOnlyVideo video={video} index={index} />
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-70 group-hover:opacity-0 transition-opacity">
+                    <div className="bg-green-600 bg-opacity-80 rounded-full p-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" className="w-10 h-10">
+                        <path fillRule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-4 bg-white">
+                  <h3 className="text-xl font-semibold text-gray-900">{video.title}</h3>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
