@@ -168,6 +168,174 @@ const benefits = [
   },
 ]
 
+// Client logos array and constants
+const clientLogos = [
+  {
+    src: "./Picture1.jpg",
+    alt: "Client Logo 1",
+    width: 200,
+    height: 100
+  },
+  {
+    src: "./Picture2.jpg",
+    alt: "Client Logo 2",
+    width: 200,
+    height: 100
+  },
+  {
+    src: "./Picture3.jpg",
+    alt: "Client Logo 3",
+    width: 200,
+    height: 100
+  },
+  {
+    src: "./Picture4.jpg",
+    alt: "Client Logo 4",
+    width: 200,
+    height: 100
+  },
+  {
+    src: "./Picture5.jpg",
+    alt: "Client Logo 5",
+    width: 200,
+    height: 100
+  },
+  {
+    src: "./Picture6.png",
+    alt: "Client Logo 6",
+    width: 200,
+    height: 100
+  },
+  {
+    src: "./Picture7.png",
+    alt: "Client Logo 7",
+    width: 200,
+    height: 100
+  },
+  {
+    src: "./Picture8.jpg",
+    alt: "Client Logo 8",
+    width: 200,
+    height: 100
+  },
+  // {
+  //   src: "./Picture9.jpg",
+  //   alt: "Client Logo 9",
+  //   width: 200,
+  //   height: 100
+  // },
+  // {
+  //   src: "./Picture10.jpg",
+  //   alt: "Client Logo 10",
+  //   width: 200,
+  //   height: 100
+  // },
+  // {
+  //   src: "./Picture11.png",
+  //   alt: "Client Logo 11",
+  //   width: 200,
+  //   height: 100
+  // },
+  // {
+  //   src: "./Picture12.png",
+  //   alt: "Client Logo 12",
+  //   width: 200,
+  //   height: 100
+  // },
+  // {
+  //   src: "./Picture13.png",
+  //   alt: "Client Logo 13",
+  //   width: 200,
+  //   height: 100
+  // },
+  // {
+  //   src: "./Picture14.png",
+  //   alt: "Client Logo 14",
+  //   width: 200,
+  //   height: 100
+  // },
+  // {
+  //   src: "./Picture15.png",
+  //   alt: "Client Logo 15",
+  //   width: 200,
+  //   height: 100
+  // },
+  // {
+  //   src: "./Picture16.png",
+  //   alt: "Client Logo 16",
+  //   width: 200, 
+  //   height: 100
+  // },
+  // {
+  //   src: "./Picture17.png",
+  //   alt: "Client Logo 17",
+  //   width: 200,
+  //   height: 100
+  // },
+  // {
+  //   src: "./Picture18.png",
+  //   alt: "Client Logo 18",
+  //   width: 200,
+  //   height: 100
+  // },
+  // {
+  //   src: "./Picture19.png",
+  //   alt: "Client Logo 19",
+  //   width: 200,
+  //   height: 100
+  // },
+  // {
+  //   src: "./Picture20.png",
+  //   alt: "Client Logo 20",
+  //   width: 200,
+  //   height: 100
+  // },
+  // {
+  //   src: "./Picture21.png",
+  //   alt: "Client Logo 21",
+  //   width: 200,
+  //   height: 100
+  // },
+  // {
+  //   src: "./Picture22.png",
+  //   alt: "Client Logo 22",
+  //   width: 200,
+  //   height: 100
+  // },
+  // {
+  //   src: "./Picture23.png",
+  //   alt: "Client Logo 23",
+  //   width: 200,
+  //   height: 100
+  // },
+  // {
+  //   src: "./Picture24.png",
+  //   alt: "Client Logo 24",
+  //   width: 200,
+  //   height: 100
+  // },
+  // {
+  //   src: "./Picture25.png",
+  //   alt: "Client Logo 25",
+  //   width: 200,
+  //   height: 100
+  // },
+  // {
+  //   src: "./Picture26.png",
+  //   alt: "Client Logo 26",
+  //   width: 200,
+  //   height: 100
+  // },
+  // {
+  //   src: "./Picture27.png",
+  //   alt: "Client Logo 27",
+  //   width: 200,
+  //   height: 100
+  // }
+]
+
+const imagesPerPage = 4
+
 const services = [
   {
     name: "Residential Solar",
@@ -192,6 +360,7 @@ const services = [
 export default function HomePage() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
   const [currentHeroImage, setCurrentHeroImage] = useState(0)
+  const [currentClientPage, setCurrentClientPage] = useState(0)
   const [hoveredBenefit, setHoveredBenefit] = useState<number | null>(null)
 
   // Auto-scroll hero images every 6 seconds
@@ -199,6 +368,17 @@ export default function HomePage() {
     const interval = setInterval(() => {
       setCurrentHeroImage((prev) => (prev + 1) % heroImages.length)
     }, 6000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  // Auto-scroll client logos every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentClientPage((prev) => 
+        prev === Math.ceil(clientLogos.length / imagesPerPage) - 1 ? 0 : prev + 1
+      )
+    }, 5000)
 
     return () => clearInterval(interval)
   }, [])
@@ -324,7 +504,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Valuable Clients Section (moved from About Us) */}
+      {/* Valuable Clients Section with Carousel */}
       <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 via-white to-green-50">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-8 sm:mb-12">
@@ -333,51 +513,70 @@ export default function HomePage() {
               Trusted by leading companies across diverse sectors in India.
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8">
-            {[
-              "/Picture1.jpg",
-              "/Picture2.jpg",
-              "/Picture3.jpg",
-              "/Picture4.jpg",
-              "/Picture5.jpg",
-              "/Picture6.png",
-              "/Picture7.png",
-              "/Picture8.jpg",
-              "/Picture9.jpg",
-              "/Picture10.jpg",
-              "/Picture11.png",
-              "/Picture12.png",
-              "/Picture13.png",
-              "/Picture14.png",
-              "/Picture15.png",
-              "/Picture16.png",
-              "/Picture17.png",
-              "/Picture18.png",
-              "/Picture19.png",
-              "/Picture20.png",
-              "/Picture21.png",
-              "/Picture22.png",
-              "/Picture23.png",
-              "/Picture24.png",
-              "/Picture25.png",
-              "/Picture26.png",
-              "/Picture27.png",
-            ].map((src, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl p-4 sm:p-6 hover:shadow-lg transition-all duration-300 border border-white/20"
+
+          {/* Client Logo Carousel */}
+          <div className="relative">
+            {/* Navigation Buttons */}
+            <button
+              onClick={() => setCurrentClientPage(prev => 
+                prev === 0 ? Math.ceil(clientLogos.length / imagesPerPage) - 1 : prev - 1
+              )}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110"
+            >
+              <ChevronLeft className="h-6 w-6 text-gray-600" />
+            </button>
+
+            <button
+              onClick={() => setCurrentClientPage(prev => 
+                prev === Math.ceil(clientLogos.length / imagesPerPage) - 1 ? 0 : prev + 1
+              )}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110"
+            >
+              <ChevronRight className="h-6 w-6 text-gray-600" />
+            </button>
+
+            {/* Client Logos Grid */}
+            <div className="overflow-hidden">
+              <div 
+                className="grid grid-cols-2 md:grid-cols-4 gap-6 transition-transform duration-500 ease-in-out"
+                style={{ 
+                  transform: `translateX(-${currentClientPage * 100}%)`,
+                  display: "grid",
+                  gridTemplateColumns: `repeat(${Math.ceil(clientLogos.length / imagesPerPage) * 4}, minmax(0, 1fr))`,
+                }}
               >
-                <div className="relative h-20 sm:h-24 md:h-28 lg:h-24 w-full">
-                  <Image
-                    src={src}
-                    alt="Client logo"
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
-                  />
-                </div>
+                {clientLogos.map((logo, index) => (
+                  <div
+                    key={index}
+                    className="bg-white rounded-xl p-4 sm:p-6 hover:shadow-lg transition-all duration-300 border border-white/20"
+                  >
+                    <div className="relative h-20 sm:h-24 md:h-28 lg:h-24 w-full">
+                      <Image
+                        src={logo.src}
+                        alt={logo.alt}
+                        width={logo.width}
+                        height={logo.height}
+                        className="w-full h-full object-contain"
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 20vw"
+                      />
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Pagination Dots */}
+            <div className="flex justify-center mt-6 gap-2">
+              {Array.from({ length: Math.ceil(clientLogos.length / imagesPerPage) }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentClientPage(index)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                    currentClientPage === index ? "bg-green-600 w-4" : "bg-gray-300 hover:bg-gray-400"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
