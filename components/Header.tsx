@@ -10,8 +10,8 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "Why Hiyasha Solar?", href: "/why-hiyasha" },
   { name: "Recidential", href: "/recidencial"},
-  { name: "About Us", href: "/about" },
   { name: "Services", href: "/services" },
+  { name: "About Us", href: "/about" },
   { name: "Contact Us", href: "/contact" },
 ];
 
@@ -22,13 +22,13 @@ export default function Header() {
   return (
       <header className="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-green-100">
         <nav
-          className="mx-auto flex max-w-7xl items-center justify-between p-2 sm:p-3 lg:px-4"
+          className="flex w-full items-center justify-between pl-3 pr-4 sm:pl-4 sm:pr-6 lg:pl-6 lg:pr-8 py-3 sm:py-4"
           aria-label="Global"
         >
         {/* Logo */}
-  <div className="flex lg:flex-1 items-center">
+  <div className="flex items-center mr-4 lg:mr-6 xl:mr-8">
           <Link href="/" className="items-center">
-            <div className="relative h-12 w-[200px] sm:h-16 sm:w-[220px]">
+            <div className="relative h-10 w-[150px] sm:h-12 sm:w-[170px]">
               <Image
                 src="https://res.cloudinary.com/dpe33dh2p/image/upload/v1753778237/logo_2_oxi3zj.png"
                 alt="Hiyasha Solar Systems LLP Logo"
@@ -69,12 +69,12 @@ export default function Header() {
         </div>
 
         {/* Desktop Navigation */}
-  <div className="hidden lg:flex lg:gap-x-4 xl:gap-x-6">
+  <div className="hidden lg:flex flex-1 justify-center items-center gap-x-8 xl:gap-x-12">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className={`text-sm lg:text-base xl:text-lg font-semibold leading-6 transition-all duration-300 hover:text-green-600 hover:scale-105 relative group ${
+              className={`text-sm lg:text-base xl:text-lg font-semibold leading-5 xl:leading-6 transition-colors duration-300 hover:text-green-600 relative group ${
                 pathname === item.href ? "text-green-600" : "text-gray-700"
               }`}
             >
@@ -85,12 +85,12 @@ export default function Header() {
         </div>
 
         {/* Desktop Catalog Buttons */}
-  <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-1">
+  <div className="hidden lg:flex items-center gap-3 xl:gap-4 ml-auto">
           <Link
             href="https://drive.google.com/file/d/1R0aoJpEk-3HjZu2nVoKjPTnvdPjOzeRh/view"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary text-xs lg:text-sm xl:text-base px-3 lg:px-4 py-1.5 lg:py-2"
+            className="btn-primary text-sm lg:text-base xl:text-lg px-3 lg:px-4 py-1.5 lg:py-2"
           >
             View Catalog
           </Link>
@@ -98,7 +98,7 @@ export default function Header() {
             href="https://drive.google.com/uc?export=download&id=1R0aoJpEk-3HjZu2nVoKjPTnvdPjOzeRh"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary text-xs lg:text-sm xl:text-base px-3 lg:px-4 py-1.5 lg:py-2"
+            className="btn-primary text-sm lg:text-base xl:text-lg px-3 lg:px-4 py-1.5 lg:py-2"
           >
             Download PDF
           </Link>

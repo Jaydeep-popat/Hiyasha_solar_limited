@@ -1,3 +1,5 @@
+"use client"
+
 import {
   Target,
   Heart,
@@ -13,9 +15,65 @@ import {
   Lightbulb,
   Clock,
   DollarSign,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect, useRef, useCallback } from "react";
+
+// Custom hook for swipe functionality
+const useSwipe = (onSwipeLeft: () => void, onSwipeRight: () => void) => {
+  const touchStart = useRef<number | null>(null)
+  const touchEnd = useRef<number | null>(null)
+
+  const minSwipeDistance = 50
+
+  const onTouchStart = useCallback((e: React.TouchEvent) => {
+    touchEnd.current = null
+    touchStart.current = e.targetTouches[0].clientX
+  }, [])
+
+  const onTouchMove = useCallback((e: React.TouchEvent) => {
+    touchEnd.current = e.targetTouches[0].clientX
+  }, [])
+
+  const onTouchEnd = useCallback(() => {
+    if (!touchStart.current || !touchEnd.current) return
+    
+    const distance = touchStart.current - touchEnd.current
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+
+    if (isLeftSwipe) {
+      onSwipeLeft()
+    }
+    if (isRightSwipe) {
+      onSwipeRight()
+    }
+  }, [onSwipeLeft, onSwipeRight])
+
+  return {
+    onTouchStart,
+    onTouchMove,
+    onTouchEnd,
+  }
+}
+
+const videoSlides = [
+  {
+    url: "https://res.cloudinary.com/dpe33dh2p/video/upload/v1757733642/WhatsApp_Video_2025-09-09_at_16.27.29_195f0829_u4npeb.mp4",
+    alt: "Hiyasha Solar Installation Process"
+  },
+  {
+    url: "https://res.cloudinary.com/dpe33dh2p/video/upload/v1757733642/WhatsApp_Video_2025-09-09_at_16.27.29_c89886f2_epspbz.mp4",
+    alt: "Hiyasha Solar Project Overview"
+  },
+  {
+    url: "https://res.cloudinary.com/dpe33dh2p/video/upload/v1757733642/WhatsApp_Video_2025-09-09_at_16.27.32_4e1b087f_gosvae.mp4",
+    alt: "Hiyasha Solar Customer Testimonial"
+  }
+];
 
 const visionMission = {
   vision: {
@@ -149,39 +207,108 @@ const renderStars = (rating: number) => {
 }
 
 export default function WhyHiyasha() {
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+
+  // Function to navigate to the next video
+  const nextVideo = useCallback(() => {
+    setCurrentVideoIndex((prev) => (prev + 1) % videoSlides.length);
+  }, []);
+
+  // Function to navigate to the previous video
+  const prevVideo = useCallback(() => {
+    setCurrentVideoIndex((prev) => (prev - 1 + videoSlides.length) % videoSlides.length);
+  }, []);
+
+  // Auto-scroll videos every 15 seconds (videos are usually longer than images)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextVideo();
+    }, 15000);
+    return () => clearInterval(interval);
+  }, [nextVideo]);
+
+  // Setup swipe handlers
+  const swipeHandlers = useSwipe(nextVideo, prevVideo);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 via-white to-green-50 py-16 sm:py-24 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-green-100/20 to-blue-100/20"></div>
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-gray-900">
-              Why Choose <span className="gradient-text">Hiyasha Solar?</span>
-            </h1>
-            <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600">
-              Discover what makes us the trusted partner for your solar energy journey. 
-              We combine innovation, expertise, and commitment to deliver exceptional 
-              solar solutions that power your future sustainably.
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
-                <Award className="h-5 w-5 text-green-600" />
-                <span className="text-sm font-medium text-gray-700">
-                  Proven Track Record
-                </span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
-                <Shield className="h-5 w-5 text-green-600" />
-                <span className="text-sm font-medium text-gray-700">
-                  Quality Assurance
-                </span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
-                <Users className="h-5 w-5 text-green-600" />
-                <span className="text-sm font-medium text-gray-700">
-                  30+ Satisfied Clients
-                </span>
+      <section className="relative h-screen max-h-[800px] min-h-[600px] overflow-hidden">
+        {/* Video Carousel Background */}
+        <div 
+          className="absolute inset-0 z-0"
+          {...swipeHandlers}
+        >
+          {videoSlides.map((video, index) => (
+            <div 
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentVideoIndex ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <video 
+                className="h-full w-full object-cover"
+                src={video.url}
+                loop
+                muted
+                autoPlay
+                playsInline
+              >
+                Your browser does not support the video tag.
+              </video>
+              {/* Overlay */}
+              <div className="absolute inset-0  backdrop-blur-[2px]"></div>
+            </div>
+          ))}
+
+          {/* Video Navigation */}
+          <div className="absolute bottom-8 left-0 right-0 z-10 flex justify-center gap-3">
+            {videoSlides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentVideoIndex(index)}
+                className={`h-2.5 rounded-full transition-all ${
+                  index === currentVideoIndex 
+                    ? "bg-green-500 w-8" 
+                    : "bg-white/50 hover:bg-white/80 w-2.5"
+                }`}
+                aria-label={`Go to video ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 flex h-full items-center">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+            <div className="mx-auto max-w-3xl text-center">
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white drop-shadow-lg">
+                Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">Hiyasha Solar?</span>
+              </h1>
+              <p className="mt-6 text-base sm:text-lg md:text-xl leading-7 sm:leading-8 text-white/90">
+                Discover what makes us the trusted partner for your solar energy journey. 
+                We combine innovation, expertise, and commitment to deliver exceptional 
+                solar solutions that power your future sustainably.
+              </p>
+              <div className="mt-10 flex flex-wrap justify-center gap-4">
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full shadow-md border border-white/20">
+                  <Award className="h-5 w-5 text-green-400" />
+                  <span className="text-sm font-medium text-white">
+                    Proven Track Record
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full shadow-md border border-white/20">
+                  <Shield className="h-5 w-5 text-green-400" />
+                  <span className="text-sm font-medium text-white">
+                    Quality Assurance
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full shadow-md border border-white/20">
+                  <Users className="h-5 w-5 text-green-400" />
+                  <span className="text-sm font-medium text-white">
+                    30+ Satisfied Clients
+                  </span>
+                </div>
               </div>
             </div>
           </div>

@@ -104,11 +104,11 @@ export default function AboutPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 via-white to-green-50 py-16 sm:py-24 lg:py-32 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-blue-50 via-white to-green-50 py-14 sm:py-20 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-green-100/20 to-blue-100/20"></div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-gray-900">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900">
               About <span className="gradient-text">Hiyasha Solar Systems</span>
             </h1>
             <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600">
@@ -116,7 +116,7 @@ export default function AboutPage() {
               solutions and a team of experienced technocrats dedicated to
               sustainable solar EPC solutions.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <div className="mt-6 sm:mt-8 flex flex-wrap justify-center gap-3">
               <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
                 <Award className="h-5 w-5 text-green-600" />
                 <span className="text-sm font-medium text-gray-700">
@@ -141,18 +141,18 @@ export default function AboutPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 sm:py-16 bg-gradient-to-r from-green-600 to-blue-600">
+      <section className="py-10 sm:py-12 bg-gradient-to-r from-green-600 to-blue-600">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="flex justify-center mb-3">
+                <div className="flex justify-center mb-2">
                   <stat.icon className="h-8 w-8 text-white/80" />
                 </div>
-                <div className="text-2xl sm:text-3xl font-bold text-white">
+                <div className="text-2xl sm:text-2xl lg:text-3xl font-bold text-white">
                   {stat.number}
                 </div>
-                <div className="text-sm sm:text-base text-white/90">
+                <div className="text-sm text-white/90">
                   {stat.label}
                 </div>
               </div>
@@ -209,14 +209,14 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Vision */}
-            <div className="text-center lg:text-left">
-              <div className="bg-yellow-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto lg:mx-0 mb-6">
+            <div className="text-center">
+              <div className="bg-yellow-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl font-bold text-blue-900">🎯</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-yellow-400 mb-6">
                 OUR VISION
               </h2>
-              <p className="text-lg sm:text-xl leading-8 text-white">
+              <p className="text-lg sm:text-xl leading-8 text-white text-center">
                 To deliver{" "}
                 <span className="text-yellow-400 font-bold">
                   20 MW of solar power
@@ -228,14 +228,14 @@ export default function AboutPage() {
             </div>
 
             {/* Mission */}
-            <div className="text-center lg:text-left">
-              <div className="bg-yellow-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto lg:mx-0 mb-6">
+            <div className="text-center">
+              <div className="bg-yellow-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl font-bold text-blue-900">⚡</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-yellow-400 mb-6">
                 OUR MISSION
               </h2>
-              <p className="text-lg sm:text-xl leading-8 text-white">
+              <p className="text-lg sm:text-xl leading-8 text-white text-center">
                 To provide sustainable solar EPC solutions with excellence in
                 engineering, reducing carbon footprints and creating a cleaner
                 tomorrow. We are passionate about positive environmental impact
@@ -277,97 +277,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* Valuable Clients Section */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white">
-              Our Valuable Clients
-            </h2>
-            <p className="mt-4 text-base sm:text-lg leading-7 sm:leading-8 text-gray-300">
-              Trusted by leading companies across diverse sectors in India.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8">
-            {[
-            "/Picture1.jpg",
-            "/Picture2.jpg",
-            "/Picture3.jpg",
-            "/Picture4.jpg",
-            "/Picture5.jpg",
-            "/Picture6.png",
-            "/Picture7.png",
-            "/Picture8.jpg",
-            "/Picture9.jpg",
-            "/Picture10.jpg",
-            "/Picture11.png",
-            "/Picture12.png",
-            "/Picture13.png",
-            "/Picture14.png",
-            "/Picture15.png",
-            "/Picture16.png",
-            "/Picture17.png",
-            "/Picture18.png",
-            "/Picture19.png",
-            "/Picture20.png",
-            "/Picture21.png",
-            "/Picture22.png",
-            "/Picture23.png",
-            "/Picture24.png",
-            "/Picture25.png",
-            "/Picture26.png",          
-            "/Picture27.png",          
-            ].map((src, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl p-4 sm:p-6 hover:shadow-lg transition-all duration-300 border border-white/20"
-              >
-                <div className="relative h-20 sm:h-24 md:h-28 lg:h-24 w-full">
-                  <Image
-                    src={src}
-                    alt="Client logo"
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-      {/* CTA Section */}
-      {/* <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-r from-green-600 to-blue-600">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white">
-              Ready to Harness Solar Power?
-            </h2>
-            <p className="mt-4 text-base sm:text-lg leading-7 sm:leading-8 text-white/90">
-              Partner with a trusted leader in solar energy. Let us help you
-              reduce energy costs, increase property value, and create a cleaner
-              tomorrow.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="btn-primary text-base sm:text-lg"
-              >
-                Get Free Consultation
-              </Link>
-              <Link
-                href="/services"
-                className="btn-secondary text-base sm:text-lg"
-              >
-                Explore Services
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section> */}
     </div>
   );
 }

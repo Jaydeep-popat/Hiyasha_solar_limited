@@ -1,41 +1,46 @@
 "use client";
-import type React from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import dynamic from 'next/dynamic';
 
-const faqs = [
-  {
-    question: "How much can I save with solar panels?",
-    answer:
-      "Most homeowners save 70-90% on their electricity bills. The exact savings depend on your energy usage, roof size, and local electricity rates.",
-  },
-  {
-    question: "How long do solar panels last?",
-    answer:
-      "Our solar panels come with a 25-year warranty and typically last 25-30 years or more with proper maintenance.",
-  },
-  {
-    question: "What happens during cloudy days?",
-    answer:
-      "Solar panels still generate electricity on cloudy days, though at reduced efficiency. Your system can also store energy in batteries for use when needed.",
-  },
-  {
-    question: "How long does installation take?",
-    answer:
-      "Most residential installations are completed in 1-3 days, depending on system size and complexity. Commercial projects may take longer.",
-  },
-  {
-    question: "Are there financing options available?",
-    answer:
-      "Yes, we offer various financing options including solar loans, leases, and power purchase agreements to make solar accessible to everyone.",
-  },
-  {
-    question: "Do I need permits for solar installation?",
-    answer:
-      "Yes, permits are required for solar installations. We handle all permit applications and approvals as part of our service.",
-  },
-];
+// Dynamically import the ContactForm with SSR disabled
+// This prevents the useLayoutEffect warning
+const ContactForm = dynamic(() => import('@/components/ContactForm'), { ssr: false });
+
+// const faqs = [
+//   {
+//     question: "How much can I save with solar panels?",
+//     answer:
+//       "Most homeowners save 70-90% on their electricity bills. The exact savings depend on your energy usage, roof size, and local electricity rates.",
+//   },
+//   {
+//     question: "How long do solar panels last?",
+//     answer:
+//       "Our solar panels come with a 25-year warranty and typically last 25-30 years or more with proper maintenance.",
+//   },
+//   {
+//     question: "What happens during cloudy days?",
+//     answer:
+//       "Solar panels still generate electricity on cloudy days, though at reduced efficiency. Your system can also store energy in batteries for use when needed.",
+//   },
+//   {
+//     question: "How long does installation take?",
+//     answer:
+//       "Most residential installations are completed in 1-3 days, depending on system size and complexity. Commercial projects may take longer.",
+//   },
+//   {
+//     question: "Are there financing options available?",
+//     answer:
+//       "Yes, we offer various financing options including solar loans, leases, and power purchase agreements to make solar accessible to everyone.",
+//   },
+//   {
+//     question: "Do I need permits for solar installation?",
+//     answer:
+//       "Yes, permits are required for solar installations. We handle all permit applications and approvals as part of our service.",
+//   },
+// ];
 
 export default function ContactPage() {
   return (
@@ -66,7 +71,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Info & Map */}
+      {/* Contact Info & Form Section */}
       <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-12 sm:gap-y-16 lg:max-w-none lg:grid-cols-2">
@@ -132,8 +137,15 @@ export default function ContactPage() {
                       Address:
                     </strong>
                     <br />
-                    F-46 Capital Market, Ravapar Rd, Ravapar, Morbi, Gujarat
-                    363641, India
+                    <Link
+                      href="https://www.google.com/maps/place/Hiyasha+Solar+Systems+LLP/@22.7985409,70.8237983,17z/data=!3m1!4b1!4m6!3m5!1s0x39598d9d1e74e5e5:0x17084f2a77f27572!8m2!3d22.7985409!4d70.8237983!16s%2Fg%2F11t0fvm5_m"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green-600 hover:text-green-500 hover:underline"
+                    >
+                      F-46 Capital Market, Ravapar Rd, Ravapar, Morbi, Gujarat
+                      363641, India
+                    </Link>
                   </dd>
                 </div>
                 <div className="flex gap-x-4">
@@ -151,28 +163,38 @@ export default function ContactPage() {
               </dl>
             </div>
 
-            {/* Office Location Map */}
+            {/* Contact Form */}
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
-                Find Us
-              </h2>
-              <p className="mt-4 text-lg text-gray-600">
-                Visit our location or get directions to our office.
-              </p>
-              <div className="mt-6 sm:mt-8">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3705.081920731327!2d70.8237983!3d22.7985409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39598d9d1e74e5e5%3A0x17084f2a77f27572!2sHiyasha%20Solar%20Systems%20LLP!5e0!3m2!1sen!2sin!4v1703760000000!5m2!1sen!2sin"
-                  width="100%"
-                  height="400"
-                  loading="lazy"
-                  allowFullScreen
-                  className="rounded-lg shadow-lg border border-gray-300 hover:border-green-500 transition-all"
-                ></iframe>
-              </div>
+              <ContactForm />
             </div>
           </div>
         </div>
       </section>
+
+      {/* Office Location Map */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+              Find Us
+            </h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Visit our location or get directions to our office.
+            </p>
+          </div>
+          <div className="mx-auto max-w-5xl">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3705.081920731327!2d70.8237983!3d22.7985409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39598d9d1e74e5e5%3A0x17084f2a77f27572!2sHiyasha%20Solar%20Systems%20LLP!5e0!3m2!1sen!2sin!4v1703760000000!5m2!1sen!2sin"
+              width="100%"
+              height="450"
+              loading="lazy"
+              allowFullScreen
+              className="rounded-lg shadow-lg border border-gray-300 hover:border-green-500 transition-all"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    
     </div>
   );
 }

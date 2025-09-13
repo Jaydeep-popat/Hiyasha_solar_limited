@@ -4,8 +4,6 @@ import "./globals.css"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import WhatsAppButton from "@/components/WhatsAppButton"
-import AboutPage from "./about/page"
-import { usePathname } from "next/navigation"
 
 export const metadata: Metadata = {
   title: "Hiyasha Solar Systems",
@@ -22,9 +20,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // Use client-side navigation to determine current path
-  // This must be a client component to use hooks
-  const pathname = typeof window !== "undefined" ? window.location.pathname : "";
   return (
     <html lang="en" className="overflow-x-hidden">
       <body className="min-h-screen bg-white text-gray-900 antialiased overflow-x-hidden">
