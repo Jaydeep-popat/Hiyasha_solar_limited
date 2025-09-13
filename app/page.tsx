@@ -21,6 +21,7 @@ import {
   Leaf,
   DollarSign
 } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
 
 // Custom hook for swipe functionality
 const useSwipe = (onSwipeLeft: () => void, onSwipeRight: () => void) => {
@@ -323,10 +324,23 @@ export default function HomePage() {
     const interval = setInterval(() => {
       const maxPage = Math.ceil(clientLogos.length / imagesPerPage) - 1;
       setCurrentClientPage(prev => prev < maxPage ? prev + 1 : 0);
-    }, 5000);
+    }, 7000); // Increased to 7 seconds for better viewing experience
 
     return () => clearInterval(interval);
   }, [])
+
+  // Prevent auto transitions when user interacts with carousel
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
+  
+  useEffect(() => {
+    if (isUserInteracting) {
+      const timer = setTimeout(() => {
+        setIsUserInteracting(false);
+      }, 10000); // Reset after 10 seconds of inactivity
+      
+      return () => clearTimeout(timer);
+    }
+  }, [isUserInteracting]);
 
   // Log client logo information
   useEffect(() => {
@@ -469,62 +483,145 @@ export default function HomePage() {
           {/* Client Logo Carousel */}
           <div className="relative max-w-6xl mx-auto">
             {/* Navigation Buttons */}
-            <button
-              onClick={() => setCurrentClientPage(prev => 
-                prev === 0 ? Math.ceil(clientLogos.length / imagesPerPage) - 1 : prev - 1
-              )}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 sm:-translate-x-8 z-10 bg-white rounded-full p-3 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-green-500"
+            <motion.button
+              whileHover={{ 
+                scale: 1.15, 
+                x: -2,
+                transition: { duration: 0.2 }
+              }}
+              whileTap={{ 
+                scale: 0.9,
+                transition: { duration: 0.1 }
+              }}
+              onClick={() => {
+                setIsUserInteracting(true);
+                setCurrentClientPage(prev => 
+                  prev === 0 ? Math.ceil(clientLogos.length / imagesPerPage) - 1 : prev - 1
+                );
+              }}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 sm:-translate-x-8 z-10 bg-white rounded-full p-3 shadow-md hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 group"
               aria-label="Previous clients"
             >
-              <ChevronLeft className="h-6 w-6 sm:h-7 sm:w-7 text-gray-600" />
-            </button>
+              <motion.div
+                whileHover={{ x: -2 }}
+                transition={{ duration: 0.2 }}
+              >
+                <ChevronLeft className="h-6 w-6 sm:h-7 sm:w-7 text-gray-600 group-hover:text-green-600 transition-colors duration-200" />
+              </motion.div>
+            </motion.button>
 
-            <button
-              onClick={() => setCurrentClientPage(prev => 
-                prev === Math.ceil(clientLogos.length / imagesPerPage) - 1 ? 0 : prev + 1
-              )}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 sm:translate-x-8 z-10 bg-white rounded-full p-3 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-green-500"
+            <motion.button
+              whileHover={{ 
+                scale: 1.15, 
+                x: 2,
+                transition: { duration: 0.2 }
+              }}
+              whileTap={{ 
+                scale: 0.9,
+                transition: { duration: 0.1 }
+              }}
+              onClick={() => {
+                setIsUserInteracting(true);
+                setCurrentClientPage(prev => 
+                  prev === Math.ceil(clientLogos.length / imagesPerPage) - 1 ? 0 : prev + 1
+                );
+              }}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 sm:translate-x-8 z-10 bg-white rounded-full p-3 shadow-md hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 group"
               aria-label="Next clients"
             >
-              <ChevronRight className="h-6 w-6 sm:h-7 sm:w-7 text-gray-600" />
-            </button>
+              <motion.div
+                whileHover={{ x: 2 }}
+                transition={{ duration: 0.2 }}
+              >
+                <ChevronRight className="h-6 w-6 sm:h-7 sm:w-7 text-gray-600 group-hover:text-green-600 transition-colors duration-200" />
+              </motion.div>
+            </motion.button>
 
             {/* Client Logos Grid */}
-            <div className="rounded-xl bg-white/50 p-2 sm:p-3">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-                {clientLogos
-                  .slice(currentClientPage * imagesPerPage, (currentClientPage + 1) * imagesPerPage)
-                  .map((logo, index) => (
-                    <div
-                      key={`logo-${currentClientPage}-${index}`}
-                      className="bg-white rounded-xl p-5 sm:p-7 lg:p-8 hover:shadow-lg transition-all duration-300 border border-gray-100 flex items-center justify-center"
-                      style={{ height: '180px', minHeight: '180px' }}
-                    >
-                      <div className="relative w-full h-full">
-                        <Image
-                          src={logo.src}
-                          alt={logo.alt}
-                          fill
-                          className="object-contain p-2"
-                          sizes="(max-width: 640px) 45vw, (max-width: 1024px) 22vw, 18vw"
-                        />
-                      </div>
-                    </div>
-                  ))}
-              </div>
+            <div className="rounded-xl bg-white/50 p-2 sm:p-3 overflow-hidden">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div 
+                  key={currentClientPage}
+                  initial={{ opacity: 0, x: 100, scale: 0.95 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  exit={{ opacity: 0, x: -100, scale: 0.95 }}
+                  transition={{ 
+                    duration: 0.6, 
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                    staggerChildren: 0.1
+                  }}
+                  className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
+                >
+                  {clientLogos
+                    .slice(currentClientPage * imagesPerPage, (currentClientPage + 1) * imagesPerPage)
+                    .map((logo, index) => (
+                      <motion.div
+                        key={`logo-${currentClientPage}-${index}`}
+                        initial={{ opacity: 0, y: 30, scale: 0.8, rotateY: -15 }}
+                        animate={{ opacity: 1, y: 0, scale: 1, rotateY: 0 }}
+                        transition={{ 
+                          duration: 0.5, 
+                          delay: index * 0.08,
+                          ease: [0.25, 0.46, 0.45, 0.94],
+                          type: "spring",
+                          stiffness: 100,
+                          damping: 15
+                        }}
+                        whileHover={{ 
+                          scale: 1.05, 
+                          y: -5,
+                          transition: { duration: 0.2 }
+                        }}
+                        className="bg-white rounded-xl p-5 sm:p-7 lg:p-8 hover:shadow-xl transition-all duration-300 border border-gray-100 flex items-center justify-center group"
+                        style={{ height: '180px', minHeight: '180px' }}
+                      >
+                        <motion.div 
+                          className="relative w-full h-full"
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Image
+                            src={logo.src}
+                            alt={logo.alt}
+                            fill
+                            className="object-contain p-2 group-hover:brightness-110 transition-all duration-300"
+                            sizes="(max-width: 640px) 45vw, (max-width: 1024px) 22vw, 18vw"
+                          />
+                        </motion.div>
+                      </motion.div>
+                    ))}
+                </motion.div>
+              </AnimatePresence>
             </div>
 
             {/* Pagination Dots */}
             <div className="flex justify-center mt-10 gap-3">
               {Array.from({ length: Math.ceil(clientLogos.length / imagesPerPage) }).map((_, index) => (
-                <button
+                <motion.button
                   key={index}
-                  onClick={() => setCurrentClientPage(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    currentClientPage === index ? "bg-green-600 w-5" : "bg-gray-300 hover:bg-gray-400"
-                  }`}
+                  onClick={() => {
+                    setIsUserInteracting(true);
+                    setCurrentClientPage(index);
+                  }}
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="relative h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors duration-300"
+                  style={{ width: currentClientPage === index ? '20px' : '12px' }}
                   aria-label={`Go to client page ${index + 1}`}
-                />
+                >
+                  {currentClientPage === index && (
+                    <motion.div
+                      className="absolute inset-0 bg-green-600 rounded-full"
+                      layoutId="activeDot"
+                      transition={{ 
+                        type: "spring", 
+                        stiffness: 400, 
+                        damping: 25,
+                        mass: 0.8
+                      }}
+                    />
+                  )}
+                </motion.button>
               ))}
             </div>
           </div>
